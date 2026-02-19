@@ -21,7 +21,7 @@ function make_map()
         local xstart = 1 + camx // 16
         local xend = xstart + 30
 
-        local tileset = SpriteSheets['tilemap.sunny.' .. 1 + ((frame // 8) % 4)]
+        local tileset = Sprites.tilemap['sunny_' .. 1 + ((frame // 8) % 4)]
 
         for y = ystart, yend do
             local line = data[y]

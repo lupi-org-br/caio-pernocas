@@ -297,8 +297,8 @@ function make_overworld()
             end
 
             local ff = ping_pong(current_frame // 8, 5)
-            local world_tiles = SpriteSheets['tilemap.world.1']
-            local props_tiles = SpriteSheets['tilemap.wprops.' .. ff]
+            local world_tiles = Sprites.tilemap.world
+            local props_tiles = Sprites.tilemap['wprops_' .. ff]
 
             draw_layer(current_frame, kMapID.tile, world_tiles)
             draw_layer(current_frame, kMapID.overlay, props_tiles)
