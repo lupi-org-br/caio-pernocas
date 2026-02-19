@@ -37,7 +37,7 @@ local function make_spring(data)
     local spring = data
     local rx, ry
     local jump_frames = 0
-    local tileset = SpriteSheets["poi.spring.1"]
+    local tileset = Sprites.poi.spring
 
     local function box()
         return {
@@ -76,6 +76,7 @@ local function make_beetle(beetle)
     local acell = 0.4
     local dead = 0
     local tileset = nil
+    local tile_frame = 0
 
     local smoke = (function()
         local out = {}
@@ -153,11 +154,13 @@ local function make_beetle(beetle)
             end
 
             if dead == 0 then
-                tileset = SpriteSheets['poi.bettle.' .. (1 + ((frame // 3) % 6))]
+                tileset = Sprites.poi.bettle
+                tile_frame = (frame // 3) % 6
             else
                 dead = math.min(5, dead + 0.2)
                 if dead < 5 then
-                    tileset = SpriteSheets['poi.explode.' .. math.floor(dead // 1) % 5]
+                    tileset = Sprites.poi.explode
+                    tile_frame = math.floor(dead // 1) % 5
                 end
             end
         end,
@@ -166,8 +169,8 @@ local function make_beetle(beetle)
             draw_smoke(camx, camy, frame)
 
             if tileset and dead < 5 then
-                local flipped = (acell > 0) and true or false
-                ui.spr(tileset, rx, ry, flipped)
+                local flipped = (acell > 0) and 1024 or 0
+                ui.tile(tileset, tile_frame + flipped, rx, ry)
             end
         end,
     }
@@ -178,7 +181,8 @@ local function make_bird(bird)
     local rx, ry
     local by, oby = 0, 0
     local dead = 0
-    local tileset = nil 
+    local tileset = nil
+    local tile_frame = 0
     local box = function()
         return {
             x = tx + 6,
@@ -212,25 +216,27 @@ local function make_bird(bird)
             end
 
             if dead == 0 then
+                tileset = Sprites.poi.bird
                 if by < oby then
-                    tileset = SpriteSheets['poi.bird.' .. (1 + ((frame // 3) % 4))]
+                    tile_frame = (frame // 3) % 4
                 else
-                    tileset = SpriteSheets['poi.bird.' .. (1 + ((frame // 9) % 2))]
+                    tile_frame = (frame // 9) % 2
                 end
                 oby = by
             else
                 dead = math.min(5, dead + 0.2)
                 if dead < 5 then
-                    tileset = SpriteSheets['poi.explode.' .. math.floor(dead // 1) % 5]
+                    tileset = Sprites.poi.explode
+                    tile_frame = math.floor(dead // 1) % 5
                 end
             end
         end,
         on_frame = function(frame, player, map, camera)
             if dead == 0 and player then
-                local flipped = (tx < player.box().x) and true or false
-                ui.spr(tileset, rx, ry, flipped)
+                local flipped = (tx < player.box().x) and 1024 or 0
+                ui.tile(tileset, tile_frame + flipped, rx, ry)
             elseif dead < 5 then
-                ui.spr(tileset, rx, ry)
+                ui.tile(tileset, tile_frame, rx, ry)
             end
         end
     }
@@ -238,7 +244,7 @@ end
 
 local function make_decal(decal, name, width_tiles, height_tiles)
     local rx, ry
-    local sprite_name = SpriteSheets['poi.' .. name .. '.1']
+    local sprite_name = Sprites.poi[name]
 
     local function update_relative_position(camx, camy)
         rx, ry = ((decal.x - 1) * 16) - camx, ((decal.y - 8) * 16) - camy
@@ -259,7 +265,7 @@ end
 local function make_cherry(cherry)
     local taken = 0
     local rx, ry
-    local tileset = nil
+    local tile_frame = 0
 
     local box = function()
         return {
@@ -287,14 +293,14 @@ local function make_cherry(cherry)
         before_frame = function(frame, player, map, camera)
             if taken == 0 then
                 check_pick(player)
-                tileset = SpriteSheets['poi.cherry.' .. 1 + (frame // 4 + cherry.x) % 7]
+                tile_frame = (frame // 4 + cherry.x) % 7
             else
-                tileset = SpriteSheets['poi.cherry.' .. math.floor(8 + (taken // 1) % 7)]
+                tile_frame = 7 + math.floor((taken // 1) % 7)
                 taken = math.min(taken + 0.2, 7)
             end
         end,
         on_frame = function(frame, player, map, camera)
-            ui.spr(tileset, rx, ry, 0)
+            ui.tile(Sprites.poi.cherry, tile_frame, rx, ry)
         end,
     }
 end

@@ -16,6 +16,7 @@ function make_player(map_ref)
     local on_ground = false
     local win_frame = 0
     local tileset = nil
+    local tile_frame = 0
 
     local function action_button_is(kind)
         if kind == kState.press then
@@ -147,8 +148,8 @@ function make_player(map_ref)
         local camx, camy = camera.getxy()
         local x, y = math.floor(position.x + 0.5), math.floor(position.y + 0.5)
         local fx, fy = x - camx, math.min(270, y - camy)
-        
-        ui.tile(tileset, 0 + (looking_back and 1024 or 0), fx, fy)
+
+        ui.tile(tileset, tile_frame + (looking_back and 1024 or 0), fx, fy)
         if fy == 270 then should_reset = true end
 
         -- juicer
@@ -197,10 +198,10 @@ function make_player(map_ref)
             ui.fillp()
             ui.circfill(fx + 10, fy + 10, math.min(60, win // 6), kColors.purple_dark)
 
-            ui.tile(SpriteSheets['player.win.1'], frame % 60 < 30 and 1024 or 0, fx - 8, fy)
+            ui.tile(Sprites.player.win, frame % 60 < 30 and 1024 or 0, fx - 8, fy)
 
-            local ff = math.floor(math.max(1, math.min(10, (win - 120) / 8)))
-            ui.spr(SpriteSheets['cwin.' .. ff], math.max(0, fx - 38), math.max(-2, fy - 42))
+            local ff = math.floor(math.max(0, math.min(9, (win - 120) / 8)))
+            ui.tile(Sprites.win.cwin, ff, math.max(0, fx - 38), math.max(-2, fy - 42))
 
             
             
@@ -261,8 +262,8 @@ function make_player(map_ref)
         end,
         before_frame = function(frame, camera, player, map)
             if win == 0 and reset_frames < 16 then update(frame) end
-            local char_frame = 1 + ((frame // state.cadency) % state.frames)
-            tileset = SpriteSheets['player.' .. state.asset .. '.' .. char_frame]
+            tileset = Sprites.player[state.asset]
+            tile_frame = (frame // state.cadency) % state.frames
         end,
         on_frame = function(frame, camera, player, map)
             draw(frame, camera, player)
