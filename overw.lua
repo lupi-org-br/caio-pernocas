@@ -299,7 +299,7 @@ function make_overworld()
 
             local ff = ping_pong(current_frame // 8, 5)
             local world_tiles = Sprites.tilemap.world.tiles
-            local props_tiles = Sprites.tilemap.wprops['tiles_' .. ff]
+            local props_tiles = Sprites.tilemap.wprops['tiles' .. ff]
 
             print("world_tiles: " .. tostring(world_tiles))
             print("props_tiles: " .. tostring(props_tiles))
