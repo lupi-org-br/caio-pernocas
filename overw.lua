@@ -17,7 +17,7 @@ MapStages = {
 
 function make_overworld()
     print("loading map")
-    local data = require("maps.world")
+    local data = require("maps.world.m")
 
     local kPlayerDir = {
         up = 1,
