@@ -257,10 +257,6 @@ function make_overworld()
                 ui.palset(i - 1, color)
             end
 
-            ui.cls(kColors.purple_dark)
-            ui.camera(0,0)
-            ui.clip(0, 0, 480, 270)
-
             pad_1, pad_2 = 0, 0
             update_camera(current_frame)
             update_player()
@@ -279,15 +275,18 @@ function make_overworld()
                 end
             end
 
+            ui.cls(kColors.purple_dark)
+            ui.camera(camx, camy)
+            ui.clip(0, 0, 480, 270)
+
             local ff = ping_pong(current_frame // 8, 5)
             local world_tiles = Sprites.maps.world.bg
             local props_tiles = Sprites.maps.world.fg1
 
-            ui.camera(camx, camy)
-
             draw_layer(current_frame, 'BG', world_tiles)
             draw_layer(current_frame, 'FG', props_tiles)
 
+            ui.camera(0, 0)
             draw_player(current_frame, props_tiles)
             draw_fade(current_frame)
         end
