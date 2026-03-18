@@ -60,13 +60,11 @@ function make_overworld()
     }
 
     local function tile_at(x, y)
-        local line = data.FG.fg1[y]
-        if line ~= nil then
-            local cell = line[x]
-            if cell ~= nil then
-                return cell[kMapID.overlay]
-            end
-        end
+        local w = data.FG.lupi_metadata.width
+        local h = data.FG.lupi_metadata.height
+        if x < 0 or x >= w or y < 0 or y >= h then return nil end
+        local tile = data.FG.fg1[x * w + y]
+        return tile
     end
 
     local function is_stage_at(x, y)
@@ -77,8 +75,8 @@ function make_overworld()
 
     local function can_walk_at(x, y, extra)
         local tile = tile_at(x, y)
-        print("can_walk_at tile: " .. tostring(tile))
-        
+        print("can_walk_at", x, y, tile)
+
         if tile == nil then return false end
         tile = tile % 112
 
