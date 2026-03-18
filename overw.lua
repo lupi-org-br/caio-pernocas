@@ -64,7 +64,7 @@ function make_overworld()
         if line ~= nil then
             local cell = line[x]
             if cell ~= nil then
-                return cell[kMapID.overlay]
+                return cell[kMapID.overlay] and cell[kMapID.overlay] or 0
             end
         end
     end
