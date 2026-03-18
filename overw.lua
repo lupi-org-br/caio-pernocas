@@ -283,6 +283,8 @@ function make_overworld()
             local world_tiles = Sprites.maps.world.bg
             local props_tiles = Sprites.maps.world.fg1
 
+            ui.camera(camx, camy)
+
             draw_layer(current_frame, 'BG', world_tiles)
             draw_layer(current_frame, 'FG', props_tiles)
 
