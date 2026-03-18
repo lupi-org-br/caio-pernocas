@@ -240,7 +240,7 @@ function make_overworld()
     end
 
     local function draw_layer(frame, layer_type, tiles)
-        ui.map(data[layer_type], camx + 480 // 2, camy + 270 // 2)
+        ui.map(data[layer_type], 0, 0)
     end
 
     update_map()
