@@ -16,7 +16,7 @@ MapStages = {
 }
 
 function make_overworld()
-    local data = require("world")
+    local data = require("maps.world")
 
     local kPlayerDir = {
         up = 1,
@@ -297,11 +297,14 @@ function make_overworld()
             end
 
             local ff = ping_pong(current_frame // 8, 5)
-            local world_tiles = Sprites.tilemap.world
-            local props_tiles = Sprites.tilemap['wprops_' .. ff]
+            local world_tiles = Sprites.tilemap.world['tilemap.world.1']
+            local props_tiles = Sprites.tilemap.wprops['tilemap.wprops.' .. ff]
 
-            draw_layer(current_frame, kMapID.tile, world_tiles)
-            draw_layer(current_frame, kMapID.overlay, props_tiles)
+            print("world_tiles: " .. tostring(world_tiles))
+            print("props_tiles: " .. tostring(props_tiles))
+
+            draw_layer(current_frame, 'tiles', world_tiles)
+            draw_layer(current_frame, 'overlay', props_tiles)
 
             draw_player(current_frame, props_tiles)
             draw_fade(current_frame)
