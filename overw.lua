@@ -240,25 +240,7 @@ function make_overworld()
     end
 
     local function draw_layer(frame, layer_type, tiles)
-        local ystart = 1 + camy // 16
-        local yend = ystart + 17
-        local xstart = 1 + camx // 16
-        local xend = xstart + 30
-
-        for y = ystart, yend do
-            local line = data[y]
-            if line ~= nil then
-                for x = xstart, xend do
-                    local vx = line[x]
-                    if vx ~= nil then
-                        local tile = vx[layer_type]
-                        if tile ~= nil and tile ~= 0 and type(tile) == "number" then
-                            ui.tile(tiles, tile - 1, 16 * (x - 1) - camx, 16 * (y - 1) - camy)
-                        end
-                    end
-                end
-            end
-        end
+        ui.map(data[layer_type], camx + 480 // 2, camy + 270 // 2)
     end
 
     update_map()
@@ -298,14 +280,14 @@ function make_overworld()
             end
 
             local ff = ping_pong(current_frame // 8, 5)
-            local world_tiles = Sprites.tilemap.world.tiles
-            local props_tiles = Sprites.tilemap.wprops['tiles' .. ff]
+            local world_tiles = Sprites.maps.world.bg
+            local props_tiles = Sprites.maps.world.fg1
 
             print("world_tiles: " .. tostring(world_tiles))
             print("props_tiles: " .. tostring(props_tiles))
 
-            draw_layer(current_frame, 'tiles', world_tiles)
-            draw_layer(current_frame, 'overlay', props_tiles)
+            draw_layer(current_frame, 'BG', world_tiles)
+            draw_layer(current_frame, 'FG', props_tiles)
 
             draw_player(current_frame, props_tiles)
             draw_fade(current_frame)
