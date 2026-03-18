@@ -240,7 +240,7 @@ function make_overworld()
     end
 
     local function draw_layer(frame, layer_type, tiles)
-        ui.map(data[layer_type], 0, 0)
+        ui.map(data[layer_type])
     end
 
     update_map()
@@ -282,9 +282,6 @@ function make_overworld()
             local ff = ping_pong(current_frame // 8, 5)
             local world_tiles = Sprites.maps.world.bg
             local props_tiles = Sprites.maps.world.fg1
-
-            print("world_tiles: " .. tostring(world_tiles))
-            print("props_tiles: " .. tostring(props_tiles))
 
             draw_layer(current_frame, 'BG', world_tiles)
             draw_layer(current_frame, 'FG', props_tiles)
