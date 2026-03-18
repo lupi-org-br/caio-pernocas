@@ -64,7 +64,7 @@ function make_overworld()
         if line ~= nil then
             local cell = line[x]
             if cell ~= nil then
-                return cell[kMapID.overlay] and cell[kMapID.overlay] or 0
+                return cell[kMapID.overlay]
             end
         end
     end
@@ -116,7 +116,7 @@ function make_overworld()
             end
         end
 
-        if psteps == 0 then
+        if psteps == 0 and tile_at(ptx, pty) then
             local current = tile_at(ptx, pty) % 112
             if current == kMapRoute.up_down or current == kMapRoute.left_right then
                 psteps = 16 -- no direction change needed
