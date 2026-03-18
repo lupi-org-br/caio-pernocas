@@ -154,7 +154,7 @@
         {
          "columns":8,
          "firstgid":1,
-         "image":"..\/tilemap\/world\/tilemap.world.1.png",
+         "image":"..\/tilemap\/world\/tiles.png",
          "imageheight":240,
          "imagewidth":144,
          "margin":16,
