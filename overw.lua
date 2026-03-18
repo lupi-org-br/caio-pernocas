@@ -60,7 +60,7 @@ function make_overworld()
     }
 
     local function tile_at(x, y)
-        local line = data[y]
+        local line = data.FG.fg1[y]
         if line ~= nil then
             local cell = line[x]
             if cell ~= nil then
