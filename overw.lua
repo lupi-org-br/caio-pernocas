@@ -80,8 +80,8 @@ function make_overworld()
 
     local function can_walk_at(x, y, extra)
         local tile = tile_at(x, y)
-        print("can_walk_at: ", x, y, tile)
-        set_tile_at(x, y, 1)
+        print("can_walk_at:: ", x, y, tile)
+        -- set_tile_at(x, y, 1)
 
         if tile == nil then return false end
         tile = tile % 112
