@@ -27,18 +27,18 @@ function make_overworld()
     }
 
     local kMapStage = {
-        locked = 16,
-        unlocked = 32,
-        done = 24
+        locked = 15,
+        unlocked = 31,
+        done = 23
     }
 
     local kMapRoute = {
-        up_down = 13,
-        left_right = 21,
-        up_left = 23,
-        down_left = 15,
-        down_right = 14,
-        up_right = 22
+        up_down = 12,
+        left_right = 20,
+        up_left = 22,
+        down_left = 14,
+        down_right = 13,
+        up_right = 21
     }
 
     local move_to_next = 0
