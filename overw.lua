@@ -183,7 +183,7 @@ function make_overworld()
     end
 
     local function update_tileset(frame)
-        data.tilesets.FG = "fg" .. ((frame / 4) % 6 + 1)
+        data.tilesets.FG = "fg" .. ((frame // 4) % 6 + 1)
     end 
 
     local function update_camera(current_frame)
