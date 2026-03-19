@@ -80,10 +80,6 @@ function make_overworld()
 
     local function can_walk_at(x, y, extra)
         local tile = tile_at(x, y)
-        print("can_walk_at:: ", x, y, tile)
-
-        -- a linha abaixo foi ocultada para não quebrar a lógica do update_tile_at
-        -- set_tile_at(x, y, 1)
 
         if tile == nil then return false end
         tile = tile % 112
@@ -186,6 +182,10 @@ function make_overworld()
         update_tile_at(ptx, pty)
     end
 
+    local function update_tileset(frame)
+        data.tilesets.FG = "fg" .. ((frame / 4) % 6 + 1)
+    end 
+
     local function update_camera(current_frame)
         local playerCenterX = PMapx + 16 / 2;
         local playerCenterY = PMapy + 16 / 2;
@@ -265,6 +265,7 @@ function make_overworld()
             end
 
             pad_1, pad_2 = 0, 0
+            update_tileset(current_frame)
             update_camera(current_frame)
             update_player()
 
