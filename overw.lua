@@ -61,15 +61,15 @@ function make_overworld()
     local function tile_at(x, y)
         local w = data.FG.lupi_metadata.width
         local h = data.FG.lupi_metadata.height
-        if x < 0 or x >= w or y < 0 or y >= h then return nil end
-        return data.FG.fg1[(y * w) + x + 1]
+        if x < 1 or x > w or y < 1 or y > h then return nil end
+        return data.FG.fg1[(y - 1) * w + x]
     end
 
     local function set_tile_at(x, y, tile)
         local w = data.FG.lupi_metadata.width
         local h = data.FG.lupi_metadata.height
-        if x < 0 or x >= w or y < 0 or y >= h then return end
-        data.FG.fg1[(y * w) + x + 1] = tile
+        if x < 1 or x > w or y < 1 or y > h then return end
+        data.FG.fg1[(y - 1) * w + x] = tile
     end
 
     local function is_stage_at(x, y)
@@ -81,7 +81,7 @@ function make_overworld()
     local function can_walk_at(x, y, extra)
         local tile = tile_at(x, y)
         print("can_walk_at:: ", x, y, tile)
-        
+
         -- a linha abaixo foi ocultada para não quebrar a lógica do update_tile_at
         -- set_tile_at(x, y, 1)
 
