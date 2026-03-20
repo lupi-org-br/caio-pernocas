@@ -243,11 +243,10 @@ local function make_bird(bird)
 end
 
 local function make_decal(decal, name, width_tiles, height_tiles)
-    local rx, ry
+    local rx, ry = ((1 + decal.x - (width_tiles-1)) * 16), ((1 + decal.y - (height_tiles-1)) * 16)
     local sprite_data = Sprites.poi[name].decal
 
     local function update_relative_position(camx, camy)
-        rx, ry = ((1 + decal.x - (width_tiles-1)) * 16), ((1 + decal.y - (height_tiles-1)) * 16)
         return true
     end
 
