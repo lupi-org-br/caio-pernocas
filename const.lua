@@ -52,9 +52,9 @@ kColisionType = {
 }
 
 kColisionTile = {
-    [122] = { kColisionType.top, kColisionType.bottom, kColisionType.left, kColisionType.right },
-    [123] = { kColisionType.top, kColisionType.left, kColisionType.right },
-    [124] = { kColisionType.bottom }
+    [9] = { kColisionType.top, kColisionType.bottom, kColisionType.left, kColisionType.right },
+    [10] = { kColisionType.top, kColisionType.left, kColisionType.right },
+    [11] = { kColisionType.bottom }
 }
 
 kPoiType = {

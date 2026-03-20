@@ -49,17 +49,16 @@ function make_map()
             draw(frame, camera)
         end,
         colides = function(x, y, type)
-            local row = data[1 + y // 16]
-            if row == nil then return false end
-            local tile = row[1 + x // 16]
-            if tile == nil then return false end
-            local type_id = tile[kMapID.colision]
+            local width = data.metadata.width
+            local type_id = data.colision.POIS[(x * width) + y]
             if type_id == nil then return false end
+
             local types = kColisionTile[type_id]
 
             for _, atype in pairs(types) do
                 if atype == type then return true end
             end
+            
             return false
         end,
         get_pois = function()
