@@ -244,7 +244,8 @@ end
 
 local function make_decal(decal, name, width_tiles, height_tiles)
     local rx, ry
-    local sprite_name = Sprites.poi[name]
+    local sprite_data = Sprites.poi[name]
+    print("sprite will be ", "poi." .. name )
 
     local function update_relative_position(camx, camy)
         rx, ry = ((decal.x - 1) * 16) - camx, ((decal.y - 8) * 16) - camy
@@ -257,9 +258,7 @@ local function make_decal(decal, name, width_tiles, height_tiles)
             
         end,
         on_frame = function(frame, player, map, camera)
-            print("drawing decal named", sprite_name, rx, ry)
-            ui.camera(0,0)
-            ui.spr(sprite_name, 0, 0)
+            ui.spr(sprite_data, rx, ry)
         end,
     }
 end
