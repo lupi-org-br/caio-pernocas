@@ -58,14 +58,14 @@ kColisionTile = {
 }
 
 kPoiType = {
-    cherry = 115,
-    spike = 114,
-    spring = 116,
-    beetle = 117,
-    palm = 141,
-    pine = 137,
-    bird = 119,
-    house = 155
+    cherry = 2,
+    spike = 1,
+    spring = 3,
+    beetle = 4,
+    palm = 20,
+    pine = 16,
+    bird = 6,
+    house = 34
 }
 
 kColors = {
