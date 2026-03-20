@@ -309,7 +309,7 @@ local function make_poi_by_type(data, camera, player, map)
     if data.poi == kPoiType.spring then return make_spring(data) end
     if data.poi == kPoiType.beetle then return make_beetle(data) end
     if data.poi == kPoiType.palm then return make_decal(data, 'palm', 4, 8) end
-    if data.poi == kPoiType.pine then return make_decal(data, 'pine', 2, 4) end
+    if data.poi == kPoiType.pine then return make_decal(data, 'pine', 4, 8) end
     if data.poi == kPoiType.house then return make_decal(data, 'house', 3, 3) end
     if data.poi == kPoiType.bird then return make_bird(data) end
 
