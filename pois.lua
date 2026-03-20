@@ -258,7 +258,8 @@ local function make_decal(decal, name, width_tiles, height_tiles)
         end,
         on_frame = function(frame, player, map, camera)
             print("drawing decal named", sprite_name, rx, ry)
-            ui.spr(sprite_name, rx, ry)
+            ui.camera(0,0)
+            ui.spr(sprite_name, 0, 0)
         end,
     }
 end
