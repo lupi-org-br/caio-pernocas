@@ -19,7 +19,7 @@ function make_map()
         -- local xend = xstart + 30
 
         ui.camera(camx, camy)
-        data.tilesets.foreground = 'sunny' .. 1 + ((frame // 8) % 4)
+        data.tilesets.FG = 'sunny' .. 1 + ((frame // 8) % 4)
         print(data.tilesets.foreground)
         ui.map(data.foreground)
         ui.camera(0, 0)
