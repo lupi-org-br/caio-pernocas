@@ -70,11 +70,11 @@ kPoiType = {
 
 kColors = {
     black = 1,
-    purple_light = 38,
-    purple_dark = 37,
-    green_dark = 58,
-    green_light = 55,
-    green_bg = 66,
+    purple_light = 75,
+    purple_dark = 68,
+    green_dark = 25,
+    green_light = 35,
+    green_bg = 12,
     gray_light = 53,
     red_light = 14,
     blue_light = 52,
