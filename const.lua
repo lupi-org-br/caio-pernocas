@@ -75,10 +75,10 @@ kColors = {
     green_dark = 25,
     green_light = 35,
     green_bg = 10,
-    gray_light = 53,
-    red_light = 14,
-    blue_light = 52,
-    yellow = 19
+    gray_light = 99,
+    red_light = 2,
+    blue_light = 4,
+    yellow = 63
 }
 
 kStages = {
