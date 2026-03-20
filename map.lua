@@ -60,14 +60,11 @@ function make_map()
         end,
         get_pois = function()
             local pois = {}
-            for y, line in pairs(data) do
-                for x, tile in pairs(line) do
-                    local poi = tile[kMapID.poi]
-                    if poi ~= 0 and poi ~= nil then
-                        table.insert(pois, { x = x, y = y, poi = poi })
-                        -- print("poi at x:" .. x .. " y:" .. y .. " value:" .. poi)
-                    end
-                end
+            local columns = data.metadata.width
+            for k, v in pairs(data.pois.POIS) do
+                local x = k % columns
+                local y = k // columns
+                table.insert(pois, { x = x, y = y, poi = v })
             end
             return pois
         end
