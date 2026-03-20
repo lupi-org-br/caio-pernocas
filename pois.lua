@@ -247,8 +247,10 @@ local function make_decal(decal, name, width_tiles, height_tiles)
     local sprite_data = Sprites.poi[name].decal
 
     local function update_relative_position(camx, camy)
-        rx, ry = ((decal.x - 1) * 16) - camx, ((decal.y - 8) * 16) - camy
-        return (rx < 480 and rx > 32 * width_tiles * -1) and (ry < 270 and ry > 32 * height_tiles * -1)
+        -- rx, ry = ((decal.x - 1) * 16) - camx, ((decal.y - 8) * 16) - camy
+        -- return (rx < 480 and rx > 32 * width_tiles * -1) and (ry < 270 and ry > 32 * height_tiles * -1)
+        rx, ry = ((decal.x - 1) * 16), ((decal.y - 8) * 16)
+        return true
     end
 
     return {
