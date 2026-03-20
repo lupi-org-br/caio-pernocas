@@ -201,9 +201,7 @@ function make_player(map_ref)
             ui.tile(Sprites.player.win, frame % 60 < 30 and 1024 or 0, fx - 8, fy)
 
             local ff = math.floor(math.max(0, math.min(9, (win - 120) / 8)))
-            ui.tile(Sprites.win.cwin, ff, math.max(0, fx - 38), math.max(-2, fy - 42))
-
-            
+            ui.spr(Sprites.win["cwin" .. ff], math.max(0, fx - 38), math.max(-2, fy - 42))
             
         else
             if reset_frames > 0 then
