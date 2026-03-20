@@ -260,7 +260,7 @@ function make_player(map_ref)
         end,
         before_frame = function(frame, camera, player, map)
             if win == 0 and reset_frames < 16 then update(frame) end
-            tileset = Sprites.player[state.asset]
+            tileset = Sprites.player.idle.1 --.player[state.asset]
             tile_frame = (frame // state.cadency) % state.frames
         end,
         on_frame = function(frame, camera, player, map)
