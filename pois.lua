@@ -245,7 +245,6 @@ end
 local function make_decal(decal, name, width_tiles, height_tiles)
     local rx, ry
     local sprite_data = Sprites.poi[name].decal
-    print("sprite will be ", name, sprite_data )
 
     local function update_relative_position(camx, camy)
         rx, ry = ((decal.x - 1) * 16) - camx, ((decal.y - 8) * 16) - camy
@@ -346,11 +345,16 @@ function make_pois(camera, player, map)
         on_frame = function(frame, camera, player, map)
             local player = player.is_dead() == false and player or nil
             
+            local camx, camy = camera.getxy()
+            ui.camera(camx, camy)
+
             for _, poi in ipairs(all_pois) do
                 if poi.will_draw then
                     poi.on_frame(frame, player, map, camera)
                 end
             end
+
+            ui.camera(0, 0)
 
             --timer
             local timer = string.format("%02d:%02d", (frame // 60) // 60, (frame // 60) % 60)
