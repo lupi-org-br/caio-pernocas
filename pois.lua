@@ -343,6 +343,7 @@ function make_pois(camera, player, map)
             end
         end,
         on_frame = function(frame, camera, player, map)
+            print("poi on frame")
             local player = player.is_dead() == false and player or nil
 
             for _, poi in ipairs(all_pois) do
