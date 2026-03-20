@@ -277,8 +277,8 @@ local function make_cherry(cherry)
     end
 
     local function update_relative_position(camx, camy)
-        rx, ry = (cherry.x * 16 - 22) - camx, (cherry.y * 16 - 22) - camy
-        return (rx < 480 and rx > -32) and (ry < 270 and ry > -32) and taken < 7
+        rx, ry = (cherry.x * 16 - 22), (cherry.y * 16 - 22)
+        return taken < 7 
     end
 
     local function check_pick(player)
