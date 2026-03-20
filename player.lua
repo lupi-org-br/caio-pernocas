@@ -148,8 +148,8 @@ function make_player(map_ref)
         local camx, camy = camera.getxy()
         local x, y = math.floor(position.x + 0.5), math.floor(position.y + 0.5)
         local fx, fy = x - camx, math.min(270, y - camy)
-
-        ui.tile(tileset, tile_frame + (looking_back and 1024 or 0), fx, fy)
+        
+        ui.spr(tileset, fx, fy, looking_back, false)
         if fy == 270 then should_reset = true end
 
         -- juicer
