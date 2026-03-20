@@ -69,6 +69,7 @@ function make_map()
             for k, v in pairs(data.pois.POIS) do
                 local x = k % columns
                 local y = k // columns
+                print("adding poi", x, y, k, v)
                 table.insert(pois, { x = x, y = y, poi = v })
             end
             return pois
