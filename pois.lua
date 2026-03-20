@@ -247,7 +247,7 @@ local function make_decal(decal, name, width_tiles, height_tiles)
     local sprite_data = Sprites.poi[name].decal
 
     local function update_relative_position(camx, camy)
-        rx, ry = ((decal.x - 1) * 16), ((decal.y - 8) * 16)
+        rx, ry = ((decal.x - width_tiles) * 16), ((decal.y - height_tiles) * 16)
         return true
     end
 
@@ -309,7 +309,7 @@ local function make_poi_by_type(data, camera, player, map)
     if data.poi == kPoiType.spike then return make_spike(data) end
     if data.poi == kPoiType.spring then return make_spring(data) end
     if data.poi == kPoiType.beetle then return make_beetle(data) end
-    if data.poi == kPoiType.palm then return make_decal(data, 'palm', 2, 4) end
+    if data.poi == kPoiType.palm then return make_decal(data, 'palm', 4, 8) end
     if data.poi == kPoiType.pine then return make_decal(data, 'pine', 2, 4) end
     if data.poi == kPoiType.house then return make_decal(data, 'house', 3, 3) end
     if data.poi == kPoiType.bird then return make_bird(data) end
