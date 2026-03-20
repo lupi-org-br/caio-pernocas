@@ -13,12 +13,14 @@ function make_map()
     local function draw(frame, camera)
         local camx, camy = camera.getxy()
 
-        local ystart = 1 + camy // 16
-        local yend = ystart + 17
-        local xstart = 1 + camx // 16
-        local xend = xstart + 30
+        -- local ystart = 1 + camy // 16
+        -- local yend = ystart + 17
+        -- local xstart = 1 + camx // 16
+        -- local xend = xstart + 30
 
+        ui.camera(camx, camy)
         ui.map(data.foreground)
+        ui.camera(0, 0)
 
         -- local tileset = Sprites.tilemap.sunny.['sunny_' .. 1 + ((frame // 8) % 4)]
 
