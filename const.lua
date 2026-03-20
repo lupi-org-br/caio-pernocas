@@ -92,7 +92,7 @@ kStages = {
         cherries     = 2,
         bg_tint      = kColors.green_bg,
         display_name = "X 1-1",
-        map_name     = "new_w1s1"
+        map_name     = "maps.stages.w1s1"
     },{
         map_location = { x = 36, y = 35 },
         player_start = { x = 4, y = 2 },
