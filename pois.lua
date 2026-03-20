@@ -257,6 +257,7 @@ local function make_decal(decal, name, width_tiles, height_tiles)
             
         end,
         on_frame = function(frame, player, map, camera)
+            print("drawing decal named", sprite_name)
             ui.spr(sprite_name, rx, ry)
         end,
     }
@@ -344,8 +345,7 @@ function make_pois(camera, player, map)
         end,
         on_frame = function(frame, camera, player, map)
             local player = player.is_dead() == false and player or nil
-            print("poi on frame")
-
+            
             for _, poi in ipairs(all_pois) do
                 if poi.will_draw then
                     poi.on_frame(frame, player, map, camera)
