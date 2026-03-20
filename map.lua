@@ -20,7 +20,6 @@ function make_map()
 
         ui.camera(camx, camy)
         data.tilesets.FG = 'sunny' .. 1 + ((frame // 8) % 4)
-        print(data.tilesets.foreground)
         ui.map(data.foreground)
         ui.camera(0, 0)
 
@@ -56,6 +55,7 @@ function make_map()
             if type_id == nil then return false end
 
             local types = kColisionTile[type_id]
+            print(x,y, tostring(type_id), tostring(types))
 
             for _, atype in pairs(types) do
                 if atype == type then return true end
