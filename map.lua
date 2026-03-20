@@ -2,13 +2,10 @@ function make_map()
     local data = require(CurrentStage.map_name)
 
     local function get_map_size()
-        local size = { height = #data * 16, width = 0 }
-
-        for _, vy in pairs(data) do
-            for x, _ in pairs(vy) do
-                if x * 16 > size.width then size.width = x * 16 end
-            end
-        end
+        local size = { 
+            height = data.metadata.height * 16,
+            width = data.metadata.width * 16
+        }
 
         return size
     end
