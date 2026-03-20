@@ -316,6 +316,7 @@ local function make_poi_by_type(data, camera, player, map)
 
 
     if data.poi == kPoiType.cherry then
+        print("adding cherry")
         player.account_point()
         return make_cherry(data)
     end
