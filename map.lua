@@ -56,10 +56,10 @@ function make_map()
             local type_id = data.colision.POIS[ix]
 
             if type_id == nil then
-                print("check colision at ", tx, ty)
+                print("check colision at ", tx, ty, ix)
                 return true
             end
-            
+
             print("colides", tx, ty, ix, type_id)
             local types = kColisionTile[type_id]
             
