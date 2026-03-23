@@ -86,42 +86,42 @@ function make_player(map_ref)
 
     local function update(frame)
 
-        -- velocity.x = 0
+        velocity.x = 0
 
-        -- if dead then
-        --     state = kPlayerStates.dead
-        -- else
-        --     if ui.btn(DOWN, pad_1) then
-        --         velocity.x = 0
-        --         state = kPlayerStates.crouch
-        --     elseif on_ground and action_button_is(kState.press) then
-        --         velocity.y = -kJumpForce
-        --         on_ground = false
-        --     elseif ui.btn(LEFT, pad_1) then
-        --         velocity.x = -kPlayerSpeed
-        --         looking_back = true
-        --         state = kPlayerStates.run
-        --     elseif ui.btn(RIGHT, pad_1) then
-        --         velocity.x = kPlayerSpeed
-        --         looking_back = false
-        --         state = kPlayerStates.run
-        --     else
-        --         state = kPlayerStates.idle
-        --     end
+        if dead then
+            state = kPlayerStates.dead
+        else
+            if ui.btn(DOWN, pad_1) then
+                velocity.x = 0
+                state = kPlayerStates.crouch
+            elseif on_ground and action_button_is(kState.press) then
+                velocity.y = -kJumpForce
+                on_ground = false
+            elseif ui.btn(LEFT, pad_1) then
+                velocity.x = -kPlayerSpeed
+                looking_back = true
+                state = kPlayerStates.run
+            elseif ui.btn(RIGHT, pad_1) then
+                velocity.x = kPlayerSpeed
+                looking_back = false
+                state = kPlayerStates.run
+            else
+                state = kPlayerStates.idle
+            end
 
-        --     if velocity.y > 0.6 then
-        --         state = kPlayerStates.fall
-        --     elseif velocity.y < -0.6 then
-        --         state = kPlayerStates.jump
-        --     end
-        -- end
+            if velocity.y > 0.6 then
+                state = kPlayerStates.fall
+            elseif velocity.y < -0.6 then
+                state = kPlayerStates.jump
+            end
+        end
 
-        -- if not dead then check_h_colisions() end
-        -- apply_gravity()
-        -- if not dead then
-        --     position.x = position.x + velocity.x
-        --     check_v_colisions()
-        -- end
+        if not dead then check_h_colisions() end
+        apply_gravity()
+        if not dead then
+            position.x = position.x + velocity.x
+            check_v_colisions()
+        end
     end
 
     local function box()
