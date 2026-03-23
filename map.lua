@@ -52,12 +52,12 @@ function make_map()
         colides = function(x, y, type)
             local width = data.metadata.width // 1
             local tx, ty = x // 16, y // 16
-            local ix = math.floor((tx * width) + ty)
+            local ix = math.floor((ty * width) + tx)
             local type_id = data.colision.POIS[ix]
 
             if type_id == nil then
                 print("check colision at: ", tx, ty, width, ix)
-                return true
+                return false
             end
 
             print("colides", tx, ty, ix, type_id)
