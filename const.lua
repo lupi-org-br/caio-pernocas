@@ -62,10 +62,16 @@ kPoiType = {
     spike = 1,
     spring = 3,
     beetle = 4,
-    palm = 20,
+    palm = 18,
     pine = 16,
     bird = 6,
-    house = 34
+    house = 20
+}
+
+kPoiOrigin = {
+    [kPoiType.palm] = {0,0},
+    [kPoiType.pine] = {0,0},
+    [kPoiType.house] = {0,0},
 }
 
 kColors = {
