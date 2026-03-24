@@ -68,8 +68,8 @@ function make_map()
             local pois = {}
             local columns = data.metadata.width
             for k, v in pairs(data.pois.POIS) do
-                local x = k % columns
-                local y = k // columns
+                local x = (k - 1) % columns
+                local y = (k - 1) // columns
                 table.insert(pois, { x = x, y = y, poi = v })
             end
             return pois
