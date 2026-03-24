@@ -69,9 +69,9 @@ kPoiType = {
 }
 
 kPoiOrigin = {
-    [kPoiType.palm] = {-2,-6},
-    [kPoiType.pine] = {-2,-6},
-    [kPoiType.house] = {0,0},
+    [kPoiType.palm]  = {-2, -6},
+    [kPoiType.pine]  = {-2, -6},
+    [kPoiType.house] = {-3, -4},
 }
 
 kColors = {
