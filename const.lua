@@ -70,7 +70,7 @@ kPoiType = {
 
 kPoiOrigin = {
     [kPoiType.palm] = {0,0},
-    [kPoiType.pine] = {0,0},
+    [kPoiType.pine] = {-2,0},
     [kPoiType.house] = {0,0},
 }
 

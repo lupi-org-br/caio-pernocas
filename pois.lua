@@ -253,9 +253,7 @@ local function make_decal(decal, name)
 
     return {
         update_relative_position = update_relative_position,
-        before_frame = function(frame, player, map, camera)
-            
-        end,
+        before_frame = function(frame, player, map, camera) end,
         on_frame = function(frame, player, map, camera)
             ui.spr(sprite_data, rx, ry)
         end,
