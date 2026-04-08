@@ -101,7 +101,7 @@ kStages = {
         map_name     = "maps.stages.w1s1"
     },{
         map_location = { x = 35, y = 36 },
-        player_start = { x = 4, y = 2 },
+        player_start = { x = 7, y = 14 },
         looking_back = false,
         bg_up        = Sprites.tilemap.deep,
         bg_down      = Sprites.tilemap.rocks,
