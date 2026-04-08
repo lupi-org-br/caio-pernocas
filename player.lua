@@ -150,7 +150,7 @@ function make_player(map_ref)
         local fx, fy = x - camx, math.min(270, y - camy)
         
         ui.spr(tileset, fx, fy, looking_back, false)
-        if (y - camy) > 270 then should_reset = true end
+        if fy == 270 then should_reset = true end
 
         -- juicer
         if total_points <= 0 then return end 
