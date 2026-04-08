@@ -172,7 +172,7 @@ local function make_beetle(beetle)
             draw_smoke(frame)
 
             if tileset and dead < 5 then
-                local flipped = (acell > 0) and 1024 or 0
+                local flipped = (acell > 0) and true or false
                 ui.spr(tileset[tostring(tile_frame)], rx, ry, flipped, false)
             end
         end,
