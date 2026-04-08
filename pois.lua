@@ -93,7 +93,7 @@ local function make_beetle(beetle)
         for _, v in ipairs(smoke) do
             if v.life > 0 then
                 ui.circfill((v.x) // 1, (v.y) // 1,
-                    math.floor(v.life + 0.5), 71)
+                    math.floor(v.life + 0.5), 60)
                 v.life = v.life - 0.04
             end
         end
