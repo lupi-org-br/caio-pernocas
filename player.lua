@@ -150,7 +150,7 @@ function make_player(map_ref)
         local fx, fy = x - camx, math.min(270, y - camy)
         
         ui.spr(tileset, fx, fy, looking_back, false)
-        if fy == 270 then should_reset = true end
+        if fy - camy == 270 then should_reset = true end
 
         -- juicer
         if total_points <= 0 then return end 
@@ -175,6 +175,8 @@ function make_player(map_ref)
     local function overlay_frame(frame, camera)
         local delta = nil
         local camx, camy = camera.getxy()
+        ui.camera(camx, camy)
+
         local y = math.floor(position.y + 0.5)
         local x = math.floor(position.x + 0.5) + 8
         local fx, fy = x, math.min(270, y)
