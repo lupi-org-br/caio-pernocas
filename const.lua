@@ -100,7 +100,7 @@ kStages = {
         display_name = "X 1-1",
         map_name     = "maps.stages.w1s1"
     },{
-        map_location = { x = 36, y = 35 },
+        map_location = { x = 35, y = 36 },
         player_start = { x = 4, y = 2 },
         looking_back = false,
         bg_up        = Sprites.tilemap.deep,
@@ -108,7 +108,7 @@ kStages = {
         cherries     = 2,
         bg_tint      = 58,
         display_name = "X 1-2",
-        map_name     = "new_w1s2"
+        map_name     = "maps.stages.w1s2"
     },{
         map_location = { x = 40, y = 33 },
         player_start = { x = 6, y = 0 },
