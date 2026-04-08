@@ -177,7 +177,7 @@ function make_player(map_ref)
         local camx, camy = camera.getxy()
         local y = math.floor(position.y + 0.5)
         local x = math.floor(position.x + 0.5) + 8
-        local fx, fy = x - camx, math.min(270, y - camy)
+        local fx, fy = x, math.min(270, y)
 
         if points == total_points then
             if win_frame == 0 then win_frame = frame end
