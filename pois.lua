@@ -158,12 +158,12 @@ local function make_beetle(beetle)
 
             if dead == 0 then
                 tileset = Sprites.poi.bettle
-                tile_frame = (frame // 3) % 6
+                tile_frame = 1 + (frame // 3) % 6
             else
                 dead = math.min(5, dead + 0.2)
                 if dead < 5 then
                     tileset = Sprites.poi.explode
-                    tile_frame = math.floor(dead // 1) % 5
+                    tile_frame = 1 + math.floor(dead // 1) % 5
                 end
             end
         end,
