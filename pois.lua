@@ -35,16 +35,14 @@ end
 
 local function make_spring(data)
     local spring = data
-    -- local rx, ry
     local jump_frames = 0
-    local tileset = Sprites.poi.spring["1"]
-
-    local rx = spring.x  * 16
-    local ry = spring.y  * 16
+    local tileset = Sprites.poi.spring.tiles
+    local rx = (spring.x - 1) * 16
+    local ry = spring.y * 16
 
     local function box()
         return {
-            x = (spring.x - 1) * 16,
+            x = rx,
             y = (spring.y - 1) * 16,
             width = 16,
             height = 16
@@ -52,8 +50,7 @@ local function make_spring(data)
     end
 
     local function update_relative_position(camx, camy)
-        --rx, ry = ((spring.x - 1) * 16) - camx, ((spring.y - 1) * 16) - camy
-        return true -- (rx < 480 and rx > -16) and (ry < 270 and ry > -16)
+        return true
     end
 
     return {
