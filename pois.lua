@@ -133,7 +133,7 @@ local function make_beetle(beetle)
         end
 
         rx, ry = tx + bx // 1, ty
-        return (rx < 480 and rx > -32) and (ry < 270 and ry > -32)
+        return true --(rx < 480 and rx > -32) and (ry < 270 and ry > -32)
     end
 
     return {
