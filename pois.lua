@@ -11,10 +11,13 @@ function check_collision(a, b)
 end
 
 local function make_spike(data)
+    local rx = (data.x - 1) * 16
+    local ry = (data.y) * 16
+
     local function box()
         return {
-            x = (data.x - 1) * 16,
-            y = (data.y - 1) * 16 + 6,
+            x = rx,
+            y = ry + 6,
             width = 16,
             height = 10
         }
