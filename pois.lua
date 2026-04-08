@@ -291,9 +291,9 @@ local function make_cherry(cherry)
         before_frame = function(frame, player, map, camera)
             if taken == 0 then
                 check_pick(player)
-                tile_frame = (frame // 4 + cherry.x) % 7
+                tile_frame = 1 + (frame // 4 + cherry.x) % 7
             else
-                tile_frame = 7 + math.floor((taken // 1) % 7)
+                tile_frame = 8 + math.floor((taken // 1) % 7)
                 taken = math.min(taken + 0.2, 7)
             end
         end,
