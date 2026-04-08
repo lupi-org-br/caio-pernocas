@@ -89,10 +89,10 @@ local function make_beetle(beetle)
         return out
     end)()
 
-    local draw_smoke = function(camx, camy, frame)
+    local draw_smoke = function(frame)
         for _, v in ipairs(smoke) do
             if v.life > 0 then
-                ui.circfill((v.x - camx) // 1, (v.y - camy) // 1,
+                ui.circfill((v.x) // 1, (v.y) // 1,
                     math.floor(v.life + 0.5), 23)
                 v.life = v.life - 0.04
             end
@@ -169,7 +169,7 @@ local function make_beetle(beetle)
         end,
         on_frame = function(frame, player, map, camera)
             
-            --draw_smoke(camx, camy, frame)
+            draw_smoke(frame)
 
             if tileset and dead < 5 then
                 local flipped = (acell > 0) and 1024 or 0
