@@ -106,7 +106,7 @@ kStages = {
         bg_up        = Sprites.tilemap.deep,
         bg_down      = Sprites.tilemap.rocks,
         cherries     = 2,
-        bg_tint      = 58,
+        bg_tint      = 54,
         display_name = "X 1-2",
         map_name     = "maps.stages.w1s2"
     },{
