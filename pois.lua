@@ -298,7 +298,7 @@ local function make_cherry(cherry)
             end
         end,
         on_frame = function(frame, player, map, camera)
-            ui.spr(Sprites.poi.cherry.1, rx, ry)
+            ui.spr(Sprites.poi.cherry["1"], rx, ry)
         end,
     }
 end
