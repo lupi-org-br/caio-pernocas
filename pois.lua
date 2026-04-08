@@ -35,9 +35,12 @@ end
 
 local function make_spring(data)
     local spring = data
-    local rx, ry
+    -- local rx, ry
     local jump_frames = 0
     local tileset = Sprites.poi.spring["1"]
+
+    local rx = ((spring.x + (kPoiOrigin[spring.poi][1])) * 16)
+    local ry = ((spring.y + (kPoiOrigin[spring.poi][2])) * 16)
 
     local function box()
         return {
