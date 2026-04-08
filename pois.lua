@@ -347,15 +347,12 @@ function make_pois(camera, player, map)
             local player = player.is_dead() == false and player or nil
             
             local camx, camy = camera.getxy()
-            ui.camera(camx, camy)
 
             for _, poi in ipairs(all_pois) do
                 if poi.will_draw then
                     poi.on_frame(frame, player, map, camera)
                 end
             end
-
-            ui.camera(0, 0)
 
             --timer
             local timer = string.format("%02d:%02d", (frame // 60) // 60, (frame // 60) % 60)

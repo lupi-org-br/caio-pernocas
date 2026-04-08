@@ -5,6 +5,7 @@ function make_camera(map_ref)
     }
     local size = map_ref.size
     local target = nil
+    local camera_applied = false
 
     local deadZone = {
         x = (480 - 48) / 2,
@@ -19,6 +20,19 @@ function make_camera(map_ref)
         end,
         set_target = function(new_target)
             target = new_target
+        end,
+        apply = function()
+            if not camera_applied then
+                local camx, camy = (position.x + 0.5) // 1, (position.y + 0.5) // 1
+                ui.camera(camx, camy)
+                camera_applied = true
+            end
+        end,
+        reset = function()
+            if camera_applied then
+                ui.camera(0, 0)
+                camera_applied = false
+            end
         end,
         before_frame = function(frame, camera, player, map)
             if target == nil or target.box == nil then return end

@@ -37,16 +37,17 @@ function make_game()
             
             pad_1, pad_2 = 0,0
             
-            ui.camera(0, 0)
             ui.clip(0, 0, 480, 270)
 
             for _, v in pairs(assets) do
                 v.before_frame(frame, camera, player, map)
             end
 
+            camera.apply()
             for _, v in pairs(assets) do
                 v.on_frame(frame, camera, player, map)
             end
+            camera.reset()
         end
     }
 end
