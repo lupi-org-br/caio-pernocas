@@ -204,27 +204,27 @@ function make_player(map_ref)
             ui.spr(Sprites.win["cwin" .. ff], math.max(0, fx - 38), math.max(-2, fy - 42))
 
         else
-            if reset_frames > 0 then
-                delta = math.min(reset_frames / 2, 8) // 1
-                reset_frames = reset_frames - 1
-            elseif fy > 270 - 32 then
-                delta = (8 + math.min(8, 8 * ((fy - 240) / 30))) // 2
-            elseif frame < 32 then
-                delta = math.min((32 - frame) / 2, 8) // 1
-            end
+            -- if reset_frames > 0 then
+            --     delta = math.min(reset_frames / 2, 8) // 1
+            --     reset_frames = reset_frames - 1
+            -- elseif fy > 270 - 32 then
+            --     delta = (8 + math.min(8, 8 * ((fy - 240) / 30))) // 2
+            -- elseif frame < 32 then
+            --     delta = math.min((32 - frame) / 2, 8) // 1
+            -- end
 
-            if delta ~= nil then
-                local dminus = 8 - delta
-                local dplus  = 8 + delta
-                for x = 0, 480, 16 do
-                    for y = 0, 270, 16 do
-                        ui.rectfill(
-                            x + dminus, y + dminus,
-                            x + dplus, y + dplus,
-                            kColors.purple_dark)
-                    end
-                end
-            end
+            -- if delta ~= nil then
+            --     local dminus = 8 - delta
+            --     local dplus  = 8 + delta
+            --     for x = 0, 480, 16 do
+            --         for y = 0, 270, 16 do
+            --             ui.rectfill(
+            --                 x + dminus, y + dminus,
+            --                 x + dplus, y + dplus,
+            --                 kColors.purple_dark)
+            --         end
+            --     end
+            -- end
         end
     end
 
