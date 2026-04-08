@@ -133,7 +133,7 @@ local function make_beetle(beetle)
         end
 
         rx, ry = tx + bx // 1, ty
-        return true --(rx < 480 and rx > -32) and (ry < 270 and ry > -32)
+        return true
     end
 
     return {
@@ -173,7 +173,7 @@ local function make_beetle(beetle)
 
             if tileset and dead < 5 then
                 local flipped = (acell > 0) and 1024 or 0
-                --ui.tile(tileset, tile_frame + flipped, rx, ry)
+                ui.spr(tileset[tostring(tile_frame)], rx, ry, flipped, false)
             end
         end,
     }
