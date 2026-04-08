@@ -132,7 +132,7 @@ local function make_beetle(beetle)
             if map.colides(ix, iy, kColisionType.left) then acell = acell * -1 end
         end
 
-        rx, ry = tx - camx + bx // 1, ty - camy
+        rx, ry = tx + bx // 1, ty
         return (rx < 480 and rx > -32) and (ry < 270 and ry > -32)
     end
 
@@ -168,12 +168,12 @@ local function make_beetle(beetle)
             end
         end,
         on_frame = function(frame, player, map, camera)
-            local camx, camy = camera.getxy()
-            draw_smoke(camx, camy, frame)
+            
+            --draw_smoke(camx, camy, frame)
 
             if tileset and dead < 5 then
                 local flipped = (acell > 0) and 1024 or 0
-                ui.tile(tileset, tile_frame + flipped, rx, ry)
+                --ui.tile(tileset, tile_frame + flipped, rx, ry)
             end
         end,
     }
