@@ -49,8 +49,8 @@ local function make_spring(data)
     end
 
     local function update_relative_position(camx, camy)
-        rx, ry = ((spring.x - 1) * 16) - camx, ((spring.y - 1) * 16) - camy
-        return (rx < 480 and rx > -16) and (ry < 270 and ry > -16)
+        --rx, ry = ((spring.x - 1) * 16) - camx, ((spring.y - 1) * 16) - camy
+        return true -- (rx < 480 and rx > -16) and (ry < 270 and ry > -16)
     end
 
     return {
