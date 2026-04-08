@@ -124,11 +124,11 @@ local function make_beetle(beetle)
     local function update_relative_position(camx, camy, map)
         if acell > 0 then
             local ix = (tx + bx // 1 + 32)
-            local iy = (ty + 8) + 1
+            local iy = (ty + 8 - 16)
             if map.colides(ix, iy, kColisionType.right) then acell = acell * -1 end
         else
             local ix = (tx + bx // 1)
-            local iy = (ty + 8) + 1
+            local iy = (ty + 8 - 16)
             if map.colides(ix, iy, kColisionType.left) then acell = acell * -1 end
         end
 
