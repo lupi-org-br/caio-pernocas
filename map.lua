@@ -12,33 +12,10 @@ function make_map()
 
     local function draw(frame, camera)
         local camx, camy = camera.getxy()
-
-        -- local ystart = 1 + camy // 16
-        -- local yend = ystart + 17
-        -- local xstart = 1 + camx // 16
-        -- local xend = xstart + 30
-
         ui.camera(camx, camy)
         data.tilesets.FG = 'sunny' .. 1 + ((frame // 8) % 4)
         ui.map(data.foreground)
         ui.camera(0, 0)
-
-        -- local tileset = Sprites.tilemap.sunny.['sunny_' .. 1 + ((frame // 8) % 4)]
-
-        -- for y = ystart, yend do
-        --     local line = data[y]
-        --     if line ~= nil then
-        --         for x = xstart, xend do
-        --             local vx = line[x]
-        --             if vx ~= nil then
-        --                 local tile = vx[kMapID.tile]
-        --                 if tile then 
-        --                     ui.tile(tileset, tile - 1, 16 * (x - 1) - camx, 16 * (y - 1) - camy)
-        --                 end 
-        --             end
-        --         end
-        --     end
-        -- end
     end
 
     return {
