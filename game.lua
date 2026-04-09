@@ -19,8 +19,8 @@ function make_game()
     local camera = make_camera(map)
     local pois = make_pois(camera, player, map)
     local bg = make_bg()
-    local ui = make_ui(player)
-    local assets = { bg, map, player, camera, pois, ui }
+    local hud = make_ui(player)
+    local assets = { bg, map, player, camera, pois, hud }
     camera.set_target(player)
 
     return {
@@ -64,7 +64,7 @@ function make_game()
             ui.camera(0, 0)
             
             -- Draw screen-fixed UI elements
-            ui.on_frame(frame, camera, player, map)
+            hud.on_frame(frame, camera, player, map)
             player.overlay().on_frame(frame, camera, player, map)
         end
     }
