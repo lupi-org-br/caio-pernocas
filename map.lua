@@ -11,11 +11,8 @@ function make_map()
     end
 
     local function draw(frame, camera)
-        local camx, camy = camera.getxy()
-        ui.camera(camx, camy)
         data.tilesets.FG = 'sunny' .. 1 + ((frame // 8) % 4)
         ui.map(data.foreground)
-        ui.camera(0, 0)
     end
 
     return {

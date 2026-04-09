@@ -1,6 +1,5 @@
 function draw_box(box, camera)
-    local camx, camy = camera.getxy()
-    ui.draw_rect(box.x - camx, box.y - camy, box.x - camx + box.width, box.y - camy + box.height, false, 4)
+    ui.draw_rect(box.x, box.y, box.x + box.width, box.y + box.height, false, 4)
 end
 
 function check_collision(a, b)
@@ -196,8 +195,9 @@ local function make_bird(bird)
     end
 
     local function update_relative_position(camx, camy)
-        rx, ry = tx - camx, ty - camy + by // 1
-        return (rx < 480 and rx > -32) and (ry < 270 and ry > -32)
+        rx, ry = tx, ty + by // 1  -- World coordinates for drawing
+        local sx, sy = tx - camx, ty - camy + by // 1  -- Screen coordinates for visibility check
+        return (sx < 480 and sx > -32) and (sy < 270 and sy > -32)
     end
 
     return {
@@ -345,22 +345,12 @@ function make_pois(camera, player, map)
         end,
         on_frame = function(frame, camera, player, map)
             local player = player.is_dead() == false and player or nil
-            
-            local camx, camy = camera.getxy()
-            ui.camera(camx, camy)
 
             for _, poi in ipairs(all_pois) do
                 if poi.will_draw then
                     poi.on_frame(frame, player, map, camera)
                 end
             end
-
-            ui.camera(0, 0)
-
-            --timer
-            local timer = string.format("%02d:%02d", (frame // 60) // 60, (frame // 60) % 60)
-            ui.print(timer, 1, 1, kColors.black)
-            ui.print(timer, 0, 0, kColors.yellow)
         end
     }
 end

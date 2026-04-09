@@ -145,27 +145,13 @@ function make_player(map_ref)
             reset_frames = 42
         end
 
-        local camx, camy = camera.getxy()
         local x, y = math.floor(position.x + 0.5), math.floor(position.y + 0.5)
-        local fx, fy = x - camx, math.min(270, y - camy)
         
-        ui.spr(tileset, fx, fy, looking_back, false)
-        if fy - camy == 270 then should_reset = true end
-
-        -- juicer
-        if total_points <= 0 then return end 
-
-        local top = 16 + 40 - (40 * points / total_points) // 1
-        ui.rect(3, 15, 11, 59, kColors.black)
-        ui.rect(2, 14, 10, 58, kColors.yellow)
-        ui.rectfill(3, 15, 9, 57, kColors.purple_dark)
-
-        if points > 0 and points ~= total_points then
-            ui.circfill(6 + math.floor(math.cos(frame / 12) + 0.5), top, 2, kColors.purple_light)
-            ui.circfill(6 + math.floor(math.sin(frame / 12) + 0.5), top, 2, kColors.red_light)
-        end
+        ui.spr(tileset, x, y, looking_back, false)
         
-        ui.rectfill(4, top // 1, 8, 16 + 40, kColors.red_light)
+        -- Check if player is below screen (death condition)
+        local camx, camy = camera.getxy()
+        if y - camy > 270 then should_reset = true end
     end
 
     local function overlay_before(frame, camera)
@@ -177,7 +163,7 @@ function make_player(map_ref)
         local camx, camy = camera.getxy()
         local y = math.floor(position.y + 0.5)
         local x = math.floor(position.x + 0.5) + 8
-        local fx, fy = x, math.min(270, y)
+        local fx, fy = x - camx, math.min(270, y - camy)
 
         if points == total_points then
             if win_frame == 0 then win_frame = frame end

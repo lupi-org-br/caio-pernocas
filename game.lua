@@ -10,6 +10,7 @@ require "camera"
 require "title"
 require "utils"
 require "overw"
+require "ui"
 
 function make_game()
     local frame = 0
@@ -18,7 +19,8 @@ function make_game()
     local camera = make_camera(map)
     local pois = make_pois(camera, player, map)
     local bg = make_bg()
-    local assets = { bg, map, player, camera, pois, player.overlay() }
+    local ui = make_ui(player)
+    local assets = { bg, map, player, camera, pois, ui }
     camera.set_target(player)
 
     return {
@@ -37,16 +39,33 @@ function make_game()
             
             pad_1, pad_2 = 0,0
             
+            -- Start with screen coordinates
             ui.camera(0, 0)
             ui.clip(0, 0, 480, 270)
 
+            -- Update all assets first
             for _, v in pairs(assets) do
                 v.before_frame(frame, camera, player, map)
             end
 
-            for _, v in pairs(assets) do
-                v.on_frame(frame, camera, player, map)
-            end
+            -- Draw background (screen coordinates, no camera transform)
+            bg.on_frame(frame, camera, player, map)
+            
+            -- Set world camera for game elements
+            local camx, camy = camera.getxy()
+            ui.camera(camx, camy)
+            
+            -- Draw world-following game elements
+            map.on_frame(frame, camera, player, map)
+            player.on_frame(frame, camera, player, map)
+            pois.on_frame(frame, camera, player, map)
+            
+            -- Reset to screen coordinates for UI
+            ui.camera(0, 0)
+            
+            -- Draw screen-fixed UI elements
+            ui.on_frame(frame, camera, player, map)
+            player.overlay().on_frame(frame, camera, player, map)
         end
     }
 end
