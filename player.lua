@@ -147,7 +147,9 @@ function make_player(map_ref)
 
         local x, y = math.floor(position.x + 0.5), math.floor(position.y + 0.5)
         
-        ui.spr(tileset, x, y, looking_back, false)
+        if points ~= total_points then
+            ui.spr(tileset, x, y, looking_back, false)
+        end 
         
         -- Check if player is below screen (death condition)
         local camx, camy = camera.getxy()
@@ -184,7 +186,8 @@ function make_player(map_ref)
             ui.fillp()
             ui.circfill(fx + 10, fy + 10, math.min(60, win // 6), kColors.purple_dark)
 
-            ui.tile(Sprites.player.win, frame % 60 < 30 and 1024 or 0, fx - 8, fy)
+            local flipped_player = frame % 60 < 30 and true or false
+            ui.spr(Sprites.player.win.f1, fx - 8, fy, flipped_player, false)
 
             local ff = 1 + math.floor(math.max(0, math.min(9, (win - 120) / 8)))
             ui.spr(Sprites.win["cwin" .. ff], math.max(0, fx - 38), math.max(-2, fy - 42))
