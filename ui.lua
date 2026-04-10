@@ -1,15 +1,11 @@
 function make_ui(player_ref)
     return {
-        before_frame = function(frame, camera, player, map)
-            -- No setup needed for UI
-        end,
+        before_frame = function(frame, camera, player, map) end,
         on_frame = function(frame, camera, player, map)
-            -- Timer display
             local timer = string.format("%02d:%02d", (frame // 60) // 60, (frame // 60) % 60)
             ui.print(timer, 1, 1, kColors.black)
             ui.print(timer, 0, 0, kColors.yellow)
             
-            -- Cherries collected bar
             local points = player_ref.get_points()
             local total_points = player_ref.get_total_points()
             
