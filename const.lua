@@ -107,10 +107,10 @@ kStages = {
         map_location = { x = 35, y = 36 },
         player_start = { x = 7, y = 14 },
         looking_back = false,
-        bg_up        = Sprites.tilemap.leaves,
-        bg_down      = Sprites.tilemap.forest,
+        bg_up        = Sprites.tilemap.clouds,
+        bg_down      = Sprites.tilemap.ocean,
         cherries     = 2,
-        bg_tint      = kColors.green_bg,
+        bg_tint      = kColors.blue_light,
         display_name = "X 1-2",
         map_name     = "maps.stages.w1s2"
     },{
