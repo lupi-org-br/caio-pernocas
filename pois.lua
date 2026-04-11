@@ -221,25 +221,25 @@ local function make_bird(bird)
             if dead == 0 then
                 tileset = Sprites.poi.bird
                 if by < oby then
-                    tile_frame = (frame // 3) % 4
+                    tile_frame = 1 + (frame // 3) % 4
                 else
-                    tile_frame = (frame // 9) % 2
+                    tile_frame = 1 + (frame // 9) % 2
                 end
                 oby = by
             else
                 dead = math.min(5, dead + 0.2)
                 if dead < 5 then
                     tileset = Sprites.poi.explode
-                    tile_frame = math.floor(dead // 1) % 5
+                    tile_frame = 1 + math.floor(dead // 1) % 4
                 end
             end
         end,
         on_frame = function(frame, player, map, camera)
             if dead == 0 and player then
-                local flipped = (tx < player.box().x) and 1024 or 0
-                ui.tile(tileset, tile_frame + flipped, rx, ry)
+                local flipped = (tx < player.box().x) and true or false
+                ui.tile(tileset[tostring(tile_frame)], rx, ry, flipped, false)
             elseif dead < 5 then
-                ui.tile(tileset, tile_frame, rx, ry)
+                ui.tile(tileset[tostring(tile_frame)], rx, ry)
             end
         end
     }
