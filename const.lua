@@ -97,20 +97,20 @@ kStages = {
         map_location = { x = 31, y = 36 },
         player_start = { x = 7, y = 14 },
         looking_back = false,
-        bg_up        = Sprites.tilemap.leaves,
-        bg_down      = Sprites.tilemap.forest,
+        bg_up        = Sprites.tilemap.deep,
+        bg_down      = Sprites.tilemap.rocks,
         cherries     = 2,
-        bg_tint      = kColors.green_bg,
+        bg_tint      = 54,
         display_name = "X 1-1",
         map_name     = "maps.stages.w1s1"
     },{
         map_location = { x = 35, y = 36 },
         player_start = { x = 7, y = 14 },
         looking_back = false,
-        bg_up        = Sprites.tilemap.deep,
-        bg_down      = Sprites.tilemap.rocks,
+        bg_up        = Sprites.tilemap.leaves,
+        bg_down      = Sprites.tilemap.forest,
         cherries     = 2,
-        bg_tint      = 54,
+        bg_tint      = kColors.green_bg,
         display_name = "X 1-2",
         map_name     = "maps.stages.w1s2"
     },{
