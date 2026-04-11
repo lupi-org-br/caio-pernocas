@@ -124,11 +124,13 @@ local function make_beetle(beetle)
         if acell > 0 then
             local ix = (tx + bx // 1 + 32)
             local iy = (ty + 8 + 16)
-            if map.colides(ix, iy, kColisionType.right) then acell = acell * -1 end
+            if map.colides(ix, iy, kColisionType.right) or map.colides(ix, iy, kColisionType.enemies)
+                then acell = acell * -1 end
         else
             local ix = (tx + bx // 1)
             local iy = (ty + 8 + 16)
-            if map.colides(ix, iy, kColisionType.left) then acell = acell * -1 end
+            if map.colides(ix, iy, kColisionType.left) or map.colides(ix, iy, kColisionType.enemies)
+                then acell = acell * -1 end
         end
 
         rx, ry = tx + bx // 1, ty

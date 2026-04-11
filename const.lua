@@ -48,10 +48,12 @@ kColisionType = {
     top = 1,
     bottom = 2,
     left = 3,
-    right = 4
+    right = 4,
+    enemies = 5
 }
 
 kColisionTile = {
+    [8] = { kColisionType.enemies },
     [9] = { kColisionType.top, kColisionType.bottom, kColisionType.left, kColisionType.right },
     [10] = { kColisionType.top, kColisionType.left, kColisionType.right },
     [11] = { kColisionType.bottom }
