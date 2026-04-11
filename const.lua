@@ -97,10 +97,10 @@ kStages = {
         map_location = { x = 31, y = 36 },
         player_start = { x = 7, y = 14 },
         looking_back = false,
-        bg_up        = Sprites.tilemap.deep,
-        bg_down      = Sprites.tilemap.rocks,
+        bg_up        = Sprites.tilemap.clouds,
+        bg_down      = Sprites.tilemap.ocean,
         cherries     = 2,
-        bg_tint      = 54,
+        bg_tint      = kColors.blue_light,,
         display_name = "X 1-1",
         map_name     = "maps.stages.w1s1"
     },{
@@ -120,7 +120,7 @@ kStages = {
         bg_up        = Sprites.tilemap.deep,
         bg_down      = Sprites.tilemap.rocks,
         cherries     = 2,
-        bg_tint      = 58,
+        bg_tint      = 54,
         display_name = "X 1-3",
         map_name     = "new_w1s3"
     },{
