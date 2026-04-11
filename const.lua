@@ -65,13 +65,15 @@ kPoiType = {
     palm = 18,
     pine = 16,
     bird = 6,
-    house = 20
+    house = 20,
+    bigtree = 22
 }
 
 kPoiOrigin = {
     [kPoiType.palm]  = {-2, -6},
     [kPoiType.pine]  = {-2, -6},
     [kPoiType.house] = {-3, -4},
+    [kPoiType.bigtree] = {-3, -6},
 }
 
 kColors = {
