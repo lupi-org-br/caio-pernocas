@@ -195,9 +195,8 @@ local function make_bird(bird)
     end
 
     local function update_relative_position(camx, camy)
-        rx, ry = tx, ty + by // 1  -- World coordinates for drawing
-        local sx, sy = tx - camx, ty - camy + by // 1  -- Screen coordinates for visibility check
-        return (sx < 480 and sx > -32) and (sy < 270 and sy > -32)
+        rx, ry = tx, ty + by // 1
+        return true
     end
 
     return {
