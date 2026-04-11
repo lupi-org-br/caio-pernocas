@@ -87,7 +87,7 @@ kColors = {
     green_bg = 10,
     gray_light = 99,
     red_light = 2,
-    blue_light = 4,
+    blue_light = 83,
     yellow = 63
 }
 
