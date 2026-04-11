@@ -100,7 +100,7 @@ kStages = {
         bg_up        = Sprites.tilemap.clouds,
         bg_down      = Sprites.tilemap.ocean,
         cherries     = 2,
-        bg_tint      = kColors.blue_light,,
+        bg_tint      = kColors.blue_light,
         display_name = "X 1-1",
         map_name     = "maps.stages.w1s1"
     },{
