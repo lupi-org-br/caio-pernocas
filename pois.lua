@@ -72,7 +72,7 @@ local function make_spring(data)
 end
 
 local function make_beetle(beetle)
-    local tx, ty = (beetle.x - 1) * 16, (beetle.y - 2) * 16
+    local tx, ty = (beetle.x - 1) * 16, (beetle.y - 1) * 16
     local rx, ry
     local bx = 0
     local acell = 0.4
@@ -172,7 +172,7 @@ local function make_beetle(beetle)
 
             if tileset and dead < 5 then
                 local flipped = (acell > 0) and true or false
-                ui.spr(tileset[tostring(tile_frame)], rx, ry, flipped, false)
+                ui.spr(tileset[tostring(tile_frame)], rx, ry+12, flipped, false)
             end
         end,
     }
