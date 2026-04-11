@@ -229,7 +229,7 @@ local function make_bird(bird)
                 dead = math.min(5, dead + 0.2)
                 if dead < 5 then
                     tileset = Sprites.poi.explode
-                    tile_frame = 1 + math.floor(dead // 1) % 4
+                    tile_frame = math.min(4, 1 + math.floor(dead // 1))
                 end
             end
         end,
