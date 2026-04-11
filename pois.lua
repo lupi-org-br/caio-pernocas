@@ -162,7 +162,7 @@ local function make_beetle(beetle)
                 dead = math.min(5, dead + 0.2)
                 if dead < 5 then
                     tileset = Sprites.poi.explode
-                    tile_frame = math.min(4, 1 + math.floor(dead // 1))
+                    tile_frame = math1 + math.floor(dead // 1) % 4
                 end
             end
         end,
@@ -172,7 +172,7 @@ local function make_beetle(beetle)
 
             if tileset and dead < 5 then
                 local flipped = (acell > 0) and true or false
-                ui.spr(tileset[tostring(tile_frame)], rx, ry+12, flipped, false)
+                ui.spr(tileset[tostring(tile_frame)], rx, ry, flipped, false)
             end
         end,
     }
