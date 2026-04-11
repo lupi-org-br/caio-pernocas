@@ -72,7 +72,7 @@ local function make_spring(data)
 end
 
 local function make_beetle(beetle)
-    local tx, ty = (beetle.x - 1) * 16, (beetle.y - 1) * 16
+    local tx, ty = (beetle.x - 1) * 16, (beetle.y - 2) * 16
     local rx, ry
     local bx = 0
     local acell = 0.4
