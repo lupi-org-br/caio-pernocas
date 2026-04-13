@@ -272,7 +272,7 @@ local function make_cherry(cherry)
     local box = function()
         return {
             x = (cherry.x - 1) * 16,
-            y = (cherry.y - 1) * 16 + 2,
+            y = (cherry.y) * 16 + 2,
             width = 16,
             height = 16
         }
