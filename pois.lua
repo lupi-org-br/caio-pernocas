@@ -279,7 +279,7 @@ local function make_cherry(cherry)
     end
 
     local function update_relative_position(camx, camy)
-        rx, ry = (cherry.x * 16 - 22), (cherry.y * 16 - 22)
+        rx, ry = (cherry.x * 16 - 22), (cherry.y * 16)
         return taken < 7 
     end
 
