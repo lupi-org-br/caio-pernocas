@@ -94,7 +94,7 @@ function make_player(map_ref)
             if ui.btn(DOWN, pad_1) then
                 velocity.x = 0
                 state = kPlayerStates.crouch
-            elseif on_ground and action_button_is(kState.press) then
+            elseif on_ground and action_button_is(kState.pressed) then
                 velocity.y = -kJumpForce
                 on_ground = false
             elseif ui.btn(LEFT, pad_1) then
