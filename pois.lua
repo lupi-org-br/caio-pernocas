@@ -181,7 +181,6 @@ local function make_beetle(beetle)
 end
 
 local function make_pad(pad) 
-    local mx, my = pad.x, pad.y
     local wx, wy = (pad.x - 1) * 16, (pad.y) * 16
     local state = 1
     local frame_counter = 0
@@ -220,6 +219,17 @@ local function make_pad(pad)
                 end
                 frame_counter = 0
             end
+
+            -- check if current state is a collision
+            -- them update map using set_colide
+            local collides = states[state].collides
+            if collides then
+                map.set_colide(wx, wy, 11)
+            else
+                map.set_colide(wx, wy, nil)
+            end
+            
+
         end,
         on_frame = function(frame, player, map, camera) 
             -- use state to find tile id
