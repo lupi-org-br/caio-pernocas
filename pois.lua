@@ -323,6 +323,8 @@ local function make_poi_by_type(data, camera, player, map)
         player.account_point()
         return make_cherry(data)
     end
+
+    error("Unknown POI type: " .. data.poi)
 end
 
 function make_pois(camera, player, map)
