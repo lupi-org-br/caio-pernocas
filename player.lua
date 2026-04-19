@@ -111,6 +111,9 @@ function make_player(map_ref)
 
             if velocity.y > 0.6 then
                 state = kPlayerStates.fall
+                if velocity.y > 1.0 then
+                    on_ground = false
+                end 
             elseif velocity.y < -0.6 then
                 state = kPlayerStates.jump
             end
