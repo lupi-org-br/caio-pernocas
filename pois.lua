@@ -181,19 +181,18 @@ local function make_beetle(beetle)
 end
 
 local function make_pad(pad) 
-    local tx, ty = (pad.x - 1) * 16, (pad.y - 3) * 16
-    local rx, ry
+    local wx, wy = (pad.x - 1) * 16, (pad.y - 1) * 16
+    
     local box = function()
         return {
-            x = tx + 6,
-            y = ty + by // 1 + 14,
-            width = 32 - 12,
-            height = 32 - 18
+            x = wx,
+            y = wy,
+            width = 16,
+            height = 16
         }
     end
 
     local function update_relative_position(camx, camy)
-        rx, ry = tx, ty + by // 1
         return true
     end
 
@@ -202,7 +201,7 @@ local function make_pad(pad)
         faraway = function() end,
         before_frame = function(frame, player, map, camera) end,
         on_frame = function(frame, player, map, camera) 
-            ui.tiles(Sprites.poi.pad, 0, rx, ry)
+            ui.tiles(Sprites.poi.pad, 0, wx, wy)
         end,
     }
 end
