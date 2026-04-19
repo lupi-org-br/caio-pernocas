@@ -181,7 +181,7 @@ local function make_beetle(beetle)
 end
 
 local function make_pad(pad) 
-    local wx, wy = (pad.x - 1) * 16, (pad.y - 1) * 16
+    local wx, wy = (pad.x - 1) * 16, (pad.y) * 16
     
     local box = function()
         return {
