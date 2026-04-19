@@ -201,7 +201,7 @@ local function make_pad(pad)
         faraway = function() end,
         before_frame = function(frame, player, map, camera) end,
         on_frame = function(frame, player, map, camera) 
-            ui.tiles(Sprites.poi.pad, 0, wx, wy)
+            ui.tile(Sprites.poi.pad.tiles, 0, wx, wy)
         end,
     }
 end
