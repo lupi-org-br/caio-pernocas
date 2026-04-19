@@ -69,7 +69,8 @@ kPoiType = {
     bird = 6,
     house = 20,
     bigtree = 22,
-    rock = 32
+    rock = 32,
+    pad = 34
 }
 
 kPoiOrigin = {

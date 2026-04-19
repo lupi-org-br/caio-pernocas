@@ -180,6 +180,34 @@ local function make_beetle(beetle)
     }
 end
 
+local function make_pad(pad) 
+    local tx, ty = (pad.x - 1) * 16, (pad.y - 3) * 16
+    local rx, ry
+    local box = function()
+        return {
+            x = tx + 6,
+            y = ty + by // 1 + 14,
+            width = 32 - 12,
+            height = 32 - 18
+        }
+    end
+
+    local function update_relative_position(camx, camy)
+        rx, ry = tx, ty + by // 1
+        return true
+    end
+
+    return {
+        update_relative_position = update_relative_position,
+        faraway = function() end,
+        before_frame = function(frame, player, map, camera) end,
+        on_frame = function(frame, player, map, camera) 
+            ui.tiles(Sprites.poi.pad, 0, rx, ry)
+        end,
+    }
+end
+
+
 local function make_bird(bird)
     local tx, ty = (bird.x - 1) * 16, (bird.y - 3) * 16
     local rx, ry
@@ -317,14 +345,13 @@ local function make_poi_by_type(data, camera, player, map)
     if data.poi == kPoiType.bigtree then return make_decal(data, 'bigtree') end
     if data.poi == kPoiType.rock then return make_decal(data, 'rock') end
     if data.poi == kPoiType.bird then return make_bird(data) end
+    if data.poi == kPoiType.pad then return make_pad(data) end
 
 
     if data.poi == kPoiType.cherry then
         player.account_point()
         return make_cherry(data)
     end
-
-    error("Unknown POI type: " .. data.poi)
 end
 
 function make_pois(camera, player, map)
