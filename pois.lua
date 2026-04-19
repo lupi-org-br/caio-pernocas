@@ -181,7 +181,18 @@ local function make_beetle(beetle)
 end
 
 local function make_pad(pad) 
+    local mx, my = pad.x, pad.y
     local wx, wy = (pad.x - 1) * 16, (pad.y) * 16
+    local state = 1
+    local frame_counter = 0
+    local states = {
+        { frames = 30, tile = 0, collides = 1},
+        { frames = 3, tile = 1, collides = 1},
+        { frames = 3, tile = 2, collides = 1},
+        { frames = 30, tile = nil, collides = 0},
+        { frames = 3, tile = 2, collides = 1},
+        { frames = 3, tile = 1, collides = 1},
+    }
     
     local box = function()
         return {
@@ -199,9 +210,23 @@ local function make_pad(pad)
     return {
         update_relative_position = update_relative_position,
         faraway = function() end,
-        before_frame = function(frame, player, map, camera) end,
+        before_frame = function(frame, player, map, camera) 
+            -- update state
+            frame_counter = frame_counter + 1
+            if frame_counter >= states[state].frames then
+                state = state + 1
+                if state > #states then
+                    state = 1
+                end
+                frame_counter = 0
+            end
+        end,
         on_frame = function(frame, player, map, camera) 
-            ui.tile(Sprites.poi.pad.tiles, 0, wx, wy)
+            -- use state to find tile id
+            local tile_id = states[state].tile
+            if tile_id then
+                ui.tile(Sprites.poi.pad.tiles, tile_id, wx, wy)
+            end
         end,
     }
 end
