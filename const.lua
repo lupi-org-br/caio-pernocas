@@ -101,27 +101,15 @@ kStages = {
 
     {
         map_location = { x = 31, y = 36 },
-        player_start = { x = 7, y = 11 },
+        player_start = { x = 7, y = 14 },
         looking_back = false,
         bg_up        = Sprites.tilemap.clouds,
         bg_down      = Sprites.tilemap.ocean,
         cherries     = 2,
         bg_tint      = kColors.blue_light,
         display_name = "X 1-1",
-        map_name     = "maps.stages.w1s5"
+        map_name     = "maps.stages.w1s1"
     },
-
-    -- {
-    --     map_location = { x = 31, y = 36 },
-    --     player_start = { x = 7, y = 14 },
-    --     looking_back = false,
-    --     bg_up        = Sprites.tilemap.clouds,
-    --     bg_down      = Sprites.tilemap.ocean,
-    --     cherries     = 2,
-    --     bg_tint      = kColors.blue_light,
-    --     display_name = "X 1-1",
-    --     map_name     = "maps.stages.w1s1"
-    -- },
     {
         map_location = { x = 35, y = 36 },
         player_start = { x = 7, y = 14 },
@@ -132,8 +120,9 @@ kStages = {
         bg_tint      = kColors.blue_light,
         display_name = "X 1-2",
         map_name     = "maps.stages.w1s2"
-    },{
-        map_location = { x = 39, y = 36 },
+    },
+    {
+        map_location = { x = 35, y = 39 },
         player_start = { x = 7, y = 14 },
         looking_back = false,
         bg_up        = Sprites.tilemap.clouds,
@@ -142,67 +131,82 @@ kStages = {
         bg_tint      = kColors.blue_light,
         display_name = "X 1-3",
         map_name     = "maps.stages.w1s3"
-    },{
-        map_location = { x = 33, y = 30 },
-        player_start = { x = 3, y = 4 },
+    },
+    {
+        map_location = { x = 38, y = 36 },
+        player_start = { x = 7, y = 11 },
         looking_back = false,
-        bg_up        = Sprites.tilemap.leaves,
-        bg_down      = Sprites.tilemap.forest,
-        cherries     = 1,
-        bg_tint      = kColors.green_bg,
-        display_name = "X 1-4",
-        map_name     = "new_w1s4"
-    },{
-        map_location = { x = 48, y = 31 },
-        player_start = { x = 3, y = 6 },
-        looking_back = false,
-        bg_up        = Sprites.tilemap.deep,
-        bg_down      = Sprites.tilemap.rocks,
+        bg_up        = Sprites.tilemap.clouds,
+        bg_down      = Sprites.tilemap.ocean,
         cherries     = 2,
-        bg_tint      = 58,
-        display_name = "X 1-5",
-        map_name     = "new_w1s5"
-    },{
-        map_location = { x = 52, y = 26 },
-        player_start = { x = 3, y = 6 },
-        looking_back = false,
-        bg_up        = Sprites.tilemap.deep,
-        bg_down      = Sprites.tilemap.rocks,
-        cherries     = 1,
-        bg_tint      = 58,
-        display_name = "X 1-6",
-        map_name     = "new_w1s6"
-    },{
-        map_location = { x = 51, y = 22 },
-        player_start = { x = 2, y = 5 },
-        looking_back = false,
-        bg_up        = Sprites.tilemap.deep,
-        bg_down      = Sprites.tilemap.rocks,
-        cherries     = 1,
-        bg_tint      = 58,
-        display_name = "X 1-7",
-        map_name     = "new_w1s7"
-    },{
-        map_location = { x = 55, y = 24 },
-        player_start = { x = 4, y = 45 },
-        looking_back = false,
-        bg_up        = Sprites.tilemap.clouds,
-        bg_down      = Sprites.tilemap.ocean,
-        cherries     = 5,
         bg_tint      = kColors.blue_light,
-        display_name = "X 1-8",
-        map_name     = "new_w1s8"
-    },{
-        map_location = { x = 44, y = 23 },
-        player_start = { x = 5, y = 14 },
-        looking_back = false,
-        bg_up        = Sprites.tilemap.clouds,
-        bg_down      = Sprites.tilemap.ocean,
-        cherries     = 5,
-        bg_tint      = kColors.blue_light,
-        display_name = "X 1-9",
-        map_name     = "new_w1s9"
-    }
+        display_name = "X 1-1",
+        map_name     = "maps.stages.w1s4"
+    },
+    
+    
+    
+    -- {
+    --     map_location = { x = 33, y = 30 },
+    --     player_start = { x = 3, y = 4 },
+    --     looking_back = false,
+    --     bg_up        = Sprites.tilemap.leaves,
+    --     bg_down      = Sprites.tilemap.forest,
+    --     cherries     = 1,
+    --     bg_tint      = kColors.green_bg,
+    --     display_name = "X 1-4",
+    --     map_name     = "new_w1s4"
+    -- },{
+    --     map_location = { x = 48, y = 31 },
+    --     player_start = { x = 3, y = 6 },
+    --     looking_back = false,
+    --     bg_up        = Sprites.tilemap.deep,
+    --     bg_down      = Sprites.tilemap.rocks,
+    --     cherries     = 2,
+    --     bg_tint      = 58,
+    --     display_name = "X 1-5",
+    --     map_name     = "new_w1s5"
+    -- },{
+    --     map_location = { x = 52, y = 26 },
+    --     player_start = { x = 3, y = 6 },
+    --     looking_back = false,
+    --     bg_up        = Sprites.tilemap.deep,
+    --     bg_down      = Sprites.tilemap.rocks,
+    --     cherries     = 1,
+    --     bg_tint      = 58,
+    --     display_name = "X 1-6",
+    --     map_name     = "new_w1s6"
+    -- },{
+    --     map_location = { x = 51, y = 22 },
+    --     player_start = { x = 2, y = 5 },
+    --     looking_back = false,
+    --     bg_up        = Sprites.tilemap.deep,
+    --     bg_down      = Sprites.tilemap.rocks,
+    --     cherries     = 1,
+    --     bg_tint      = 58,
+    --     display_name = "X 1-7",
+    --     map_name     = "new_w1s7"
+    -- },{
+    --     map_location = { x = 55, y = 24 },
+    --     player_start = { x = 4, y = 45 },
+    --     looking_back = false,
+    --     bg_up        = Sprites.tilemap.clouds,
+    --     bg_down      = Sprites.tilemap.ocean,
+    --     cherries     = 5,
+    --     bg_tint      = kColors.blue_light,
+    --     display_name = "X 1-8",
+    --     map_name     = "new_w1s8"
+    -- },{
+    --     map_location = { x = 44, y = 23 },
+    --     player_start = { x = 5, y = 14 },
+    --     looking_back = false,
+    --     bg_up        = Sprites.tilemap.clouds,
+    --     bg_down      = Sprites.tilemap.ocean,
+    --     cherries     = 5,
+    --     bg_tint      = kColors.blue_light,
+    --     display_name = "X 1-9",
+    --     map_name     = "new_w1s9"
+    -- }
 }
 
 CurrentStage = kStages[2]
