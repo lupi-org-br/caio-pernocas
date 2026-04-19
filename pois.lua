@@ -186,10 +186,10 @@ local function make_pad(pad)
     local state = 1
     local frame_counter = 0
     local states = {
-        { frames = 60, tile = 0, collides = 1},
+        { frames = 80, tile = 0, collides = 1},
         { frames = 3, tile = 1, collides = 1},
         { frames = 3, tile = 2, collides = 1},
-        { frames = 15, tile = nil, collides = 0},
+        { frames = 80, tile = nil, collides = 0},
         { frames = 3, tile = 2, collides = 1},
         { frames = 3, tile = 1, collides = 1},
     }
