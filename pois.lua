@@ -180,10 +180,10 @@ local function make_beetle(beetle)
     }
 end
 
-local function make_pad(pad) 
+local function make_pad(pad, start_frame) 
     local wx, wy = (pad.x - 1) * 16, (pad.y) * 16
     local state = 1
-    local frame_counter = 0
+    local frame_counter = start_frame
     local states = {
         { frames = 80, tile = 0, collides = true},
         { frames = 3, tile = 1, collides = true},
@@ -210,7 +210,7 @@ local function make_pad(pad)
         update_relative_position = update_relative_position,
         faraway = function() end,
         before_frame = function(frame, player, map, camera) 
-            -- update state
+            
             frame_counter = frame_counter + 1
             if frame_counter >= states[state].frames then
                 state = state + 1
@@ -220,16 +220,12 @@ local function make_pad(pad)
                 frame_counter = 0
             end
 
-            -- check if current state is a collision
-            -- them update map using set_colide
             local collides = states[state].collides
             if collides then
                 map.set_colide(wx, wy, 11)
             else
                 map.set_colide(wx, wy, nil)
             end
-            
-
         end,
         on_frame = function(frame, player, map, camera) 
             -- use state to find tile id
@@ -379,7 +375,10 @@ local function make_poi_by_type(data, camera, player, map)
     if data.poi == kPoiType.bigtree then return make_decal(data, 'bigtree') end
     if data.poi == kPoiType.rock then return make_decal(data, 'rock') end
     if data.poi == kPoiType.bird then return make_bird(data) end
-    if data.poi == kPoiType.pad then return make_pad(data) end
+    if data.poi == kPoiType.pad_a then return make_pad(data, 0) end
+    if data.poi == kPoiType.pad_b then return make_pad(data, 20) end
+    if data.poi == kPoiType.pad_c then return make_pad(data, 40) end
+    if data.poi == kPoiType.pad_d then return make_pad(data, 60) end
 
 
     if data.poi == kPoiType.cherry then
