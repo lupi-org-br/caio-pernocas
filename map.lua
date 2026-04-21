@@ -57,6 +57,7 @@ function make_map()
             if callback then
                 data.colision.CALLBACKS = data.colision.CALLBACKS or {}
                 data.colision.CALLBACKS[ix] = callback
+                error("callback " .. tostring(x) .. ", " .. tostring(y) .. " at " .. tostring(ix))
             end
         end,
         get_pois = function()
