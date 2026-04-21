@@ -1,6 +1,6 @@
 function make_branch(branch, name)
     -- branches is a 4x2 tilemap
-    local dx = name == 'left' and 58 or 1
+    local dx = name == 'left' and 58 or 18
     local flipped = not (name == 'left' and true or false)
     local wx = branch.x * 16 - dx
     local wy = branch.y * 16 - (1 * 16)
@@ -19,7 +19,7 @@ function make_branch(branch, name)
             player.add_listener(kPlayerEvents.falling, function()
                 target_frame = 1
             end)
-            
+
             player.add_listener(kPlayerEvents.jumped, function()
                 target_frame = 1
             end)
