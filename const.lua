@@ -94,7 +94,8 @@ kColors = {
     gray_light = 99,
     red_light = 2,
     blue_light = 83,
-    yellow = 63
+    yellow = 63,
+    sunrise = 236,
 }
 
 kStages = {
@@ -106,7 +107,7 @@ kStages = {
         bg_up        = Sprites.tilemap.snowy_top,
         bg_down      = Sprites.tilemap.ocean,
         cherries     = 2,
-        bg_tint      = kColors.blue_light,
+        bg_tint      = kColors.sunrise,
         display_name = "X 1-1",
         map_name     = "maps.stages.w2s1"
     },
