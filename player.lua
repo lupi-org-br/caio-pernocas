@@ -35,7 +35,7 @@ function make_player(map_ref)
                 position.y = (((position.y + size.h) // 16) * 16) - size.h - 0.001
                 velocity.y = 0
                 on_ground = true
-                map_ref.on_colide_event(position.x // 16, position.y // 16, "on_ground")
+                map_ref.on_colide_event(position.x + size.w / 2 + 4, position.y + size.h, "on_ground")
             end
         elseif map_ref.colides(position.x + size.w / 2 - 4, position.y + 12, kColisionType.top)
             or map_ref.colides(position.x + size.w / 2 + 4, position.y + 12, kColisionType.top) then
