@@ -1,6 +1,7 @@
 function make_map()
     local data = require(CurrentStage.map_name)
-
+    data.colision.CALLBACKS = {}
+    
     local function get_map_size()
         local size = { 
             height = data.metadata.height * 16,
@@ -62,7 +63,6 @@ function make_map()
             data.colision.POIS[ix] = type
 
             if callback then
-                data.colision.CALLBACKS = data.colision.CALLBACKS or {}
                 data.colision.CALLBACKS[ix] = callback
             end
         end,
