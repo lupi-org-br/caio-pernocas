@@ -16,6 +16,14 @@ function make_branch(branch, name)
     return {
         update_relative_position = update_relative_position,
         on_enter = function(frame, player, map, camera)
+            player.add_listener(kPlayerEvents.falling, function()
+                target_frame = 1
+            end)
+            
+            player.add_listener(kPlayerEvents.jumped, function()
+                target_frame = 1
+            end)
+            
             local start_x = name == 'left' and 0 or 1
             for x = 1, 2 do
                 map.set_colide(wx + (start_x + x) * 16, wy + 16, 11, function(event)

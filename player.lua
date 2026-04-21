@@ -17,6 +17,15 @@ function make_player(map_ref)
     local win_frame = 0
     local tileset = nil
     local tile_frame = 0
+    local event_listeners = {}
+
+    local function call_event_listeners(event, params)
+        for _, listener in ipairs(event_listeners) do
+            if listener.event == event then
+                listener.callback(params)
+            end
+        end
+    end
 
     local function action_button_is(kind)
         if kind == kState.press then
@@ -78,11 +87,13 @@ function make_player(map_ref)
     local function spring_jump()
         velocity.y = -(kJumpForce * 1.5)
         on_ground = false
+        call_event_listeners(kPlayerEvents.jumped)
     end
 
     local function enemy_taken_jump()
         velocity.y = -(kJumpForce * 0.7)
         on_ground = false
+        call_event_listeners(kPlayerEvents.jumped)
     end
 
     local function update(frame)
@@ -98,6 +109,7 @@ function make_player(map_ref)
             elseif on_ground and action_button_is(kState.pressed) then
                 velocity.y = -kJumpForce
                 on_ground = false
+                call_event_listeners(kPlayerEvents.jumped)
             elseif ui.btn(LEFT, pad_1) then
                 velocity.x = -kPlayerSpeed
                 looking_back = true
@@ -114,6 +126,7 @@ function make_player(map_ref)
                 state = kPlayerStates.fall
                 if velocity.y > 2.0 then
                     on_ground = false
+                    call_event_listeners(kPlayerEvents.falling)
                 end 
             elseif velocity.y < -0.6 then
                 state = kPlayerStates.jump
@@ -258,6 +271,9 @@ function make_player(map_ref)
         end,
         on_frame = function(frame, camera, player, map)
             draw(frame, camera, player)
+        end,
+        add_listener = function(event, callback)
+            table.insert(event_listeners, { event = event, callback = callback })
         end
     }
 end

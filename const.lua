@@ -102,6 +102,11 @@ kColors = {
     sunrise = 236,
 }
 
+kPlayerEvents = {
+    falling = 1,
+    jumped = 2,
+}
+
 kStages = {
 
     {
