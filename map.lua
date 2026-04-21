@@ -47,7 +47,7 @@ function make_map()
             if callback then 
                 callback(event)
             else
-                ui.print("no callback at " .. tostring(tx) .. ", " .. tostring(ty), 64, 64, 5)
+                LOG = "no callback at " .. tostring(tx) .. ", " .. tostring(ty)
             end  
         end,
         set_colide = function(x, y, type, callback)

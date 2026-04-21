@@ -81,6 +81,11 @@ local function draw()
     end
 
     Scene.draw(Frame)
+
+    if LOG then
+        ui.print(LOG, 64, 64, 5)
+        LOG = nil
+    end
 end
 
 function update(new_frame)
