@@ -23,6 +23,8 @@ function make_game()
     local assets = { bg, map, player, camera, pois, hud }
     camera.set_target(player)
 
+    pois.on_enter(frame, camera, player, map)
+
     return {
         update = function() end,
         name = function() return "game" end,

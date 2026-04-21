@@ -396,10 +396,19 @@ function make_pois(camera, player, map)
     local all_pois = {}
     for _, poi in ipairs(map.get_pois()) do
         local created = make_poi_by_type(poi, camera, player, map)
-        if created then table.insert(all_pois, created) end
+        if created then 
+            table.insert(all_pois, created)
+        end
     end
 
     return {
+        on_enter = function(frame, camera, player, map) 
+            for _, poi in ipairs(all_pois) do
+                if poi.on_enter then
+                    poi.on_enter(frame, camera, player, map)
+                end
+            end
+        end,
         before_frame = function(frame, camera, player, map)
             local player = player.is_dead() == false and player or nil
             local camx, camy = camera.getxy()
