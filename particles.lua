@@ -2,7 +2,7 @@
 local function make_snow_particle(x, y)
     local cx, cy = x, y
     local ax = 0
-    local ay = 0.2 + math.random() * 0.2
+    local ay = 0.4 + math.random() * 0.4
     local life = 120 + math.random() * 60
     return {
         update = function(frame)
@@ -11,7 +11,8 @@ local function make_snow_particle(x, y)
             life = life - 1
         end,
         draw = function(frame)
-            ui.circfill(cx, cy, 3, 231)
+            local size = life / 180 * 4
+            ui.circfill(cx, cy, size, 231)
         end,
         alive = function() 
             return life > 0
