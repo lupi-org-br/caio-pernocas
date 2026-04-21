@@ -44,11 +44,7 @@ function make_map()
             local ix = math.floor((ty * width) + tx + 1)
             local callback = data.colision.CALLBACKS[ix]
             
-            if callback then 
-                callback(event)
-            else
-                LOG = "no callback at " .. tostring(tx) .. ", " .. tostring(ty)
-            end  
+            if callback then callback(event) end  
         end,
         set_colide = function(x, y, type, callback)
             local width = data.metadata.width // 1
