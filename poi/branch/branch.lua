@@ -11,7 +11,7 @@ function make_branch(branch, name)
     return {
         update_relative_position = update_relative_position,
         on_enter = function(frame, player, map, camera)
-            for x = 0, 3 do
+            for x = 0, 2 do
                 map.set_colide(wx + x * 16, wy + 16, 11)
             end
         end,
