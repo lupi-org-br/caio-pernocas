@@ -22,7 +22,6 @@ function make_game()
     local hud = make_ui(player)
     local assets = { bg, map, player, camera, pois, hud }
     camera.set_target(player)
-
     pois.on_enter(frame, camera, player, map)
 
     return {

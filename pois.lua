@@ -405,7 +405,7 @@ function make_pois(camera, player, map)
         on_enter = function(frame, camera, player, map) 
             for _, poi in ipairs(all_pois) do
                 if poi.on_enter then
-                    poi.on_enter(frame, camera, player, map)
+                    poi.on_enter(frame, player, map, camera)
                 end
             end
         end,
