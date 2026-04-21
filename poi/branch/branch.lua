@@ -19,7 +19,7 @@ function make_branch(branch, name)
             local start_x = name == 'left' and 0 or 1
             for x = 1, 2 do
                 map.set_colide(wx + (start_x + x) * 16, wy + 16, 11, function(event)
-                    if event == "on_ground" then
+                    if event == "touching" then
                         target_frame = 5
                     end
                 end)
@@ -35,7 +35,6 @@ function make_branch(branch, name)
         on_frame = function(frame, player, map, camera)
             local sprite_data = Sprites.poi.branch[tostring(math.floor(current_frame))]
             ui.spr(sprite_data, wx, wy, flipped, false)
-            target_frame = 1
         end,
     }
 end
