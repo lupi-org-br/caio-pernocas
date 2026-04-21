@@ -48,8 +48,7 @@ function make_particles()
     end
 
     local function draw(frame)
-        for i = 0, #particles - 1 do
-            local p = particles[i]
+        for _, p in pairs(particles) do
             p.draw(frame)
         end
     end
