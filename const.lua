@@ -73,12 +73,14 @@ kPoiType = {
     pad_a = 34,
     pad_b = 35,
     pad_c = 36,
-    pad_d = 37
+    pad_d = 37,
+    snowy_pine = 48
 }
 
 kPoiOrigin = {
     [kPoiType.palm]  = {-2, -6},
     [kPoiType.pine]  = {-2, -6},
+    [kPoiType.snowy_pine]  = {-2, -6},
     [kPoiType.house] = {-3, -4},
     [kPoiType.bigtree] = {-3, -4},
     [kPoiType.rock] = {-1, -1},
