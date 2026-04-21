@@ -5,8 +5,8 @@ function make_branch(branch, name)
     local wx = branch.x * 16 - dx
     local wy = branch.y * 16 - (1 * 16)
     
-    local target_frame = 0
-    local current_frame = 0
+    local target_frame = 1
+    local current_frame = 1
     local frame_increment_speed = 0.25
 
     local function update_relative_position(camx, camy)
