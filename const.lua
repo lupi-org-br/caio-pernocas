@@ -105,7 +105,7 @@ kStages = {
         player_start = { x = 7, y = 14 },
         looking_back = false,
         bg_up        = Sprites.tilemap.snowy_top,
-        bg_down      = Sprites.tilemap.ocean,
+        bg_down      = Sprites.tilemap.snowy_bot,
         cherries     = 2,
         bg_tint      = kColors.sunrise,
         display_name = "X 1-1",
