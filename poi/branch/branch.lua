@@ -1,7 +1,7 @@
 function make_branch(branch, name)
     -- branches is a 4x2 tilemap
 
-    local dx = name == 'left' and 4 or 1
+    local dx = name == 'left' and 3 or 1
     local flipped = not (name == 'left' and true or false)
     local wx = branch.x * 16 - (dx * 16)
     local wy = branch.y * 16 - (1 * 16)
