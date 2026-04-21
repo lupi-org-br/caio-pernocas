@@ -109,28 +109,28 @@ kPlayerEvents = {
 
 kStages = {
 
-    {
-        map_location = { x = 31, y = 36 },
-        player_start = { x = 7, y = 14 },
-        looking_back = false,
-        bg_up        = Sprites.tilemap.snowy_top,
-        bg_down      = Sprites.tilemap.snowy_bot,
-        cherries     = 2,
-        bg_tint      = kColors.sunrise,
-        display_name = "X 1-1",
-        map_name     = "maps.stages.w2s1"
-    },
     -- {
     --     map_location = { x = 31, y = 36 },
     --     player_start = { x = 7, y = 14 },
     --     looking_back = false,
-    --     bg_up        = Sprites.tilemap.clouds,
-    --     bg_down      = Sprites.tilemap.ocean,
+    --     bg_up        = Sprites.tilemap.snowy_top,
+    --     bg_down      = Sprites.tilemap.snowy_bot,
     --     cherries     = 2,
-    --     bg_tint      = kColors.blue_light,
+    --     bg_tint      = kColors.sunrise,
     --     display_name = "X 1-1",
-    --     map_name     = "maps.stages.w1s1"
+    --     map_name     = "maps.stages.w2s1"
     -- },
+    {
+        map_location = { x = 31, y = 36 },
+        player_start = { x = 7, y = 14 },
+        looking_back = false,
+        bg_up        = Sprites.tilemap.clouds,
+        bg_down      = Sprites.tilemap.ocean,
+        cherries     = 2,
+        bg_tint      = kColors.blue_light,
+        display_name = "X 1-1",
+        map_name     = "maps.stages.w1s1"
+    },
     {
         map_location = { x = 35, y = 36 },
         player_start = { x = 7, y = 14 },
