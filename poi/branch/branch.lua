@@ -24,9 +24,9 @@ function make_branch(branch, name)
                 target_frame = 1
             end)
             
-            local start_x = name == 'left' and 0 or 1
+            
             for x = 1, 2 do
-                map.set_colide(wx + (start_x + x) * 16, wy + 16, 11, function(event)
+                map.set_colide(wx + x * 16, wy + 16, 11, function(event)
                     if event == "touching" then
                         target_frame = 5
                     end
