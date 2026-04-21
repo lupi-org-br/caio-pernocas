@@ -415,7 +415,7 @@ function make_pois(camera, player, map)
 
             for _, poi in ipairs(all_pois) do
                 poi.will_draw = poi.update_relative_position(camx, camy, map)
-                if poi.will_draw then
+                if poi.will_draw and poi.before_frame then
                     poi.before_frame(frame, player, map, camera)
                 elseif poi.faraway then
                     poi.faraway()
