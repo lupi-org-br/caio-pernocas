@@ -374,6 +374,7 @@ local function make_poi_by_type(data, camera, player, map)
     if data.poi == kPoiType.house then return make_decal(data, 'house') end
     if data.poi == kPoiType.bigtree then return make_decal(data, 'bigtree') end
     if data.poi == kPoiType.rock then return make_decal(data, 'rock') end
+    if data.poi == kPoiType.snowy_pine then return make_decal(data, 'snowy_pine') end
     if data.poi == kPoiType.bird then return make_bird(data) end
     if data.poi == kPoiType.pad_a then return make_pad(data, 0) end
     if data.poi == kPoiType.pad_b then return make_pad(data, 20) end
