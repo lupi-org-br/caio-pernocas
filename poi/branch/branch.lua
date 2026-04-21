@@ -20,7 +20,7 @@ function make_branch(branch, name)
             end
         end,
         on_frame = function(frame, player, map, camera)
-            ui.spr(sprite_data, 0, wx, wy, flipped, false)
+            ui.spr(sprite_data, wx, wy, flipped, false)
         end,
     }
 end
