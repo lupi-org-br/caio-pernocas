@@ -1,3 +1,7 @@
+
+require "poi.branch.branch"
+
+
 function draw_box(box, camera)
     ui.draw_rect(box.x, box.y, box.x + box.width, box.y + box.height, false, 4)
 end
@@ -380,7 +384,7 @@ local function make_poi_by_type(data, camera, player, map)
     if data.poi == kPoiType.pad_b then return make_pad(data, 20) end
     if data.poi == kPoiType.pad_c then return make_pad(data, 40) end
     if data.poi == kPoiType.pad_d then return make_pad(data, 60) end
-
+    if data.poi == kPoiType.branch_left then return make_branch(data, 'left') end
 
     if data.poi == kPoiType.cherry then
         player.account_point()

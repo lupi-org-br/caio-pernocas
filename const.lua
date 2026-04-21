@@ -74,7 +74,8 @@ kPoiType = {
     pad_b = 35,
     pad_c = 36,
     pad_d = 37,
-    snowy_pine = 48
+    snowy_pine = 48,
+    branch_left = 42,
 }
 
 kPoiOrigin = {
