@@ -18,7 +18,8 @@ function make_branch(branch, name)
             end
         end,
         on_frame = function(frame, player, map, camera)
-            ui.spr(sprite_data, wx, wy)
+            local flipped = name == 'left' and false or true
+            ui.spr(sprite_data, wx, wy, flipped)
         end,
     }
 end
