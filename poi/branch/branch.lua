@@ -29,7 +29,7 @@ function make_branch(branch, name)
                 map.set_colide(wx + x * 16, wy + 16, 11, function(event)
                     if event == "touching" and target_frame ~= 5 then
                         target_frame = 5
-                        for i = 1, math.random(4, 6) do
+                        for i = 1, math.random(1, 8) do
                             P.add_particle(wx + x * 16 + math.random(-8, 8), wy + 16, kParticles.snow)
                         end
                     end
