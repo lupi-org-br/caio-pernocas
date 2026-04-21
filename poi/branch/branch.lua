@@ -27,8 +27,9 @@ function make_branch(branch, name)
             
             for x = 1, 2 do
                 map.set_colide(wx + x * 16, wy + 16, 11, function(event)
-                    if event == "touching" then
+                    if event == "touching" and target_frame ~= 5 then
                         target_frame = 5
+                        P.add_particle(wx + x * 16, wy + 16, kParticles.snow)
                     end
                 end)
             end

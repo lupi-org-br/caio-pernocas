@@ -11,6 +11,7 @@ require "title"
 require "utils"
 require "overw"
 require "ui"
+require "particles"
 
 function make_game()
     local frame = 0
@@ -20,7 +21,9 @@ function make_game()
     local pois = make_pois(camera, player, map)
     local bg = make_bg()
     local hud = make_ui(player)
-    local assets = { bg, map, player, camera, pois, hud }
+    local particles = make_particles()
+    P = particles
+    local assets = { bg, map, player, camera, pois, hud, particles }
     camera.set_target(player)
     pois.on_enter(frame, camera, player, map)
 
@@ -55,6 +58,7 @@ function make_game()
             map.on_frame(frame, camera, player, map)
             player.on_frame(frame, camera, player, map)
             pois.on_frame(frame, camera, player, map)
+            particles.on_frame(frame, camera, player, map)
             
             ui.camera(0, 0)
             
