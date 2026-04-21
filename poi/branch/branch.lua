@@ -1,4 +1,4 @@
-return function make_branch(branch, name)
+function make_branch(branch, name)
     local wx = branch.x
     local wy = branch.y
     local sprite_data = Sprites.poi.branch[tostring(1)]
