@@ -56,9 +56,9 @@ function make_game()
             ui.camera(camx, camy)
             
             map.on_frame(frame, camera, player, map)
+            particles.on_frame(frame, camera, player, map)
             player.on_frame(frame, camera, player, map)
             pois.on_frame(frame, camera, player, map)
-            particles.on_frame(frame, camera, player, map)
             
             ui.camera(0, 0)
             
