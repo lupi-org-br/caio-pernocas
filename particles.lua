@@ -24,7 +24,7 @@ kParticles = {
 }
 
 local particles_max = 64
-local particles = {
+local particles_factories = {
     [kParticles.snow] = make_snow_particle
 }
 
@@ -33,7 +33,7 @@ function make_particles()
     
     local function add_particle(x, y, type)
         if #particles < particles_max then
-            table.insert(particles, particles[type](x, y))
+            table.insert(particles, particles_factories[type](x, y))
         end
     end
 
