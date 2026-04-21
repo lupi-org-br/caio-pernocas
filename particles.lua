@@ -5,7 +5,7 @@ local function make_snow_particle(x, y)
     local ay = 0.32 + math.random() * 0.32
     local life = 100 + math.random() * 40
     local delay = math.random(0, 10)
-    local color = 229 + math.random(0,2)
+    local color = 230 + math.random(0,1)
 
     return {
         update = function(frame)
