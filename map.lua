@@ -38,11 +38,26 @@ function make_map()
             
             return false
         end,
-        set_colide = function(x, y, type)
+        on_colide_event = function(x, y, event)
+            local width = data.metadata.width // 1
+            local tx, ty = x // 16, y // 16
+            local ix = math.floor((ty * width) + tx + 1)
+            local callback = data.colision.CALLBACKS[ix]
+            
+            if callback then
+                callback()
+            end 
+        end,
+        set_colide = function(x, y, type, callback)
             local width = data.metadata.width // 1
             local tx, ty = x // 16, y // 16
             local ix = math.floor((ty * width) + tx + 1)
             data.colision.POIS[ix] = type
+
+            if callback then
+                data.colision.CALLBACKS = data.colision.CALLBACKS or {}
+                data.colision.CALLBACKS[ix] = callback
+            end
         end,
         get_pois = function()
             local pois = {}

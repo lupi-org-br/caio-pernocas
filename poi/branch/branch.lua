@@ -15,7 +15,9 @@ function make_branch(branch, name)
         on_enter = function(frame, player, map, camera)
             local start_x = name == 'left' and 0 or 1
             for x = 1, 2 do
-                map.set_colide(wx + (start_x + x) * 16, wy + 16, 11)
+                map.set_colide(wx + (start_x + x) * 16, wy + 16, 11, function()
+                    player.spring_jump()
+                end)
             end
         end,
         on_frame = function(frame, player, map, camera)
