@@ -2,7 +2,7 @@ function make_branch(branch, name)
     -- branches is a 4x2 tilemap
 
     local dx = name == 'left' and 4 or 1
-    local flipped = name == 'left' and true or false
+    local flipped = not (name == 'left' and true or false)
     local wx = branch.x * 16 - (dx * 16)
     local wy = branch.y * 16 - (1 * 16)
     local sprite_data = Sprites.poi.branch[tostring(1)]
