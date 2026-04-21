@@ -10,9 +10,15 @@ function make_map()
         return size
     end
 
-    local function draw(frame, camera)
+    local function draw_foreground(frame, camera)
         data.tilesets.FG = 'sunny' .. 1 + ((frame // 8) % 4)
         ui.map(data.foreground)
+    end
+
+    local function draw_overlay(frame, camera)
+        if data.overlay then
+            ui.map(data.overlay)
+        end
     end
 
     return {
@@ -20,8 +26,11 @@ function make_map()
         before_frame = function(frame, camera, player, map)
             
         end,
-        on_frame = function(frame, camera, player, map)
-            draw(frame, camera)
+        draw_foreground = function(frame, camera, player, map)
+            draw_foreground(frame, camera)
+        end,
+        draw_overlay = function(frame, camera, player, map)
+            draw_overlay(frame, camera)
         end,
         colides = function(x, y, type)
             local width = data.metadata.width // 1
