@@ -24,7 +24,7 @@ function make_bird(bird)
         faraway = function() end,
         before_frame = function(frame, player, map, camera)
             if player and dead == 0 then
-                by = (math.cos(ty + frame / 40) ^ 4) * 96
+                by = (math.cos(ty + frame / 80) ^ 4) * 96
                 local pbox, tbox = player.box(), box()
                 if check_collision(pbox, tbox) then
                     if pbox.y + pbox.height < tbox.y + 8 then
