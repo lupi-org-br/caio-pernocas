@@ -1,5 +1,5 @@
 function make_bird(bird)
-    local tx, ty = (bird.x - 1) * 16, (bird.y - 3) * 16
+    local tx, ty = (bird.x - 1) * 16, (bird.y - 2) * 16
     local rx, ry
     local by, oby = 0, 0
     local dead = 0
