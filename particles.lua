@@ -28,13 +28,32 @@ local function make_snow_particle(x, y)
     }
 end
 
+local function make_smoke_particle(x, y)
+    local cx, cy = x, y
+    local life = 6
+
+    return {
+        update = function(frame)
+            life = life - 0.04
+        end,
+        draw = function(frame)
+            ui.circfill(cx // 1, cy // 1, math.floor(life + 0.5), 60)
+        end,
+        alive = function() 
+            return life > 0
+        end
+    }
+end
+
 kParticles = {
-    snow = 1
+    snow = 1,
+    smoke = 2
 }
 
 local particles_max = 64
 local particles_factories = {
-    [kParticles.snow] = make_snow_particle
+    [kParticles.snow] = make_snow_particle,
+    [kParticles.smoke] = make_smoke_particle
 }
 
 function make_particles()

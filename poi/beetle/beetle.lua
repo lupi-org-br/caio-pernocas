@@ -7,37 +7,6 @@ function make_beetle(beetle)
     local tileset = nil
     local tile_frame = 0
 
-    local smoke = (function()
-        local out = {}
-        for i = 1, 30, 1 do
-            table.insert(out, { x = 0, y = 0, life = 0 })
-        end
-        return out
-    end)()
-
-    local draw_smoke = function(frame)
-        for _, v in ipairs(smoke) do
-            if v.life > 0 then
-                ui.circfill((v.x) // 1, (v.y) // 1,
-                    math.floor(v.life + 0.5), 60)
-                v.life = v.life - 0.04
-            end
-        end
-    end
-
-    local make_smoke = function(frame)
-        if frame % 10 ~= 0 then return end
-
-        for _, v in ipairs(smoke) do
-            if v.life <= 0 then
-                v.life = 6
-                v.x = tx + bx + (acell > 0 and 8 or 20)
-                v.y = ty + 16 + math.random(6)
-                return
-            end
-        end
-    end
-
     local box = function()
         return {
             x = tx + bx // 1 + 6,
@@ -81,7 +50,9 @@ function make_beetle(beetle)
                     end
                 end
 
-                make_smoke(frame)
+                if frame % 10 == 0 then
+                    P.add_particle(tx + bx + (acell > 0 and 8 or 20), ty + 16 + math.random(6), kParticles.smoke)
+                end
             end
 
             if dead == 0 then
@@ -97,8 +68,6 @@ function make_beetle(beetle)
         end,
         on_frame = function(frame, player, map, camera)
             
-            draw_smoke(frame)
-
             if tileset and dead < 5 then
                 local flipped = (acell > 0) and true or false
                 ui.spr(tileset[tostring(tile_frame)], rx, ry, flipped, false)
