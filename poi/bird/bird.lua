@@ -60,7 +60,7 @@ function make_bird(bird)
                 ui.spr(tileset[tostring(tile_frame)], rx, ry, flipped, false)
 
                 if frame % 10 == 0 then
-                    P.add_particle(tx + bx + (acell > 0 and 8 or 20), ty + 16 + math.random(6), kParticles.smoke)
+                    P.add_particle(tx , ty + 16 + math.random(6), kParticles.smoke)
                 end
             elseif dead < 5 then
                 ui.spr(tileset[tostring(tile_frame)], rx, ry, flipped, false)
