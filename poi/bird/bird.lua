@@ -41,9 +41,9 @@ function make_bird(bird)
             if dead == 0 then
                 tileset = Sprites.poi.bird
                 if by < oby then
-                    tile_frame = 1 + (frame // 3) % 4
+                    tile_frame = 1 + (frame // 2) % 4
                 else
-                    tile_frame = 1 + (frame // 9) % 2
+                    tile_frame = 1 + (frame // 12) % 4
                 end
                 oby = by
             else
