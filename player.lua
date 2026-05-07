@@ -154,16 +154,18 @@ function make_player(map_ref)
             end
         end
 
-        if velocity.y > 0.6 then
-            state = kPlayerStates.fall
-            roll_direction = 0
-            if velocity.y > 2.0 then
-                on_ground = false
-                call_event_listeners(kPlayerEvents.falling)
-            end 
-        elseif velocity.y < -0.6 then
-            state = kPlayerStates.jump
-            roll_direction = 0
+        if not dead then
+            if velocity.y > 0.6 then
+                state = kPlayerStates.fall
+                roll_direction = 0
+                if velocity.y > 2.0 then
+                    on_ground = false
+                    call_event_listeners(kPlayerEvents.falling)
+                end 
+            elseif velocity.y < -0.6 then
+                state = kPlayerStates.jump
+                roll_direction = 0
+            end
         end
 
         if not dead then check_h_colisions() end
