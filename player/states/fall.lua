@@ -13,7 +13,7 @@ function StateFall.update(ctx, frame)
         ctx.velocity.x = 0
     end
 
-    if ctx.velocity.y <= 0.6 and ctx.velocity.y >= -0.6 then
+    if ctx.on_ground then
         if ctx.velocity.x == 0 then
             return kPlayerStates.idle
         else

@@ -21,5 +21,13 @@ function StateJump.update(ctx, frame)
         return kPlayerStates.fall
     end
 
+    if ctx.on_ground then
+        if ctx.velocity.x == 0 then
+            return kPlayerStates.idle
+        else
+            return kPlayerStates.run
+        end
+    end
+
     return nil
 end

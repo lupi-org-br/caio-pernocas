@@ -1,8 +1,12 @@
 StateRoll = {}
 
 function StateRoll.update(ctx, frame)
-    if not ctx.on_ground then
+    if ctx.velocity.y > 0.6 then
         ctx.roll_direction = 0
+        if ctx.velocity.y > 2.0 then
+            ctx.on_ground = false
+            call_event_listeners(ctx, kPlayerEvents.falling)
+        end 
         return kPlayerStates.fall
     end
 
