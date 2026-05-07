@@ -33,13 +33,13 @@ function check_h_colisions(ctx)
         if ctx.velocity.x > 0 then
             ctx.position.x = ctx.position.x // 1
             ctx.velocity.x = 0
-            if check_top then ctx.state = kPlayerStates.idle end
+            if ctx.on_ground and check_top then ctx.state = kPlayerStates.idle end
         end
     elseif left_col then
         if ctx.velocity.x < 0 then
             ctx.position.x = ctx.position.x // 1
             ctx.velocity.x = 0
-            if check_top then ctx.state = kPlayerStates.idle end
+            if ctx.on_ground and check_top then ctx.state = kPlayerStates.idle end
         end
     end
 end
