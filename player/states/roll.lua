@@ -18,8 +18,9 @@ function StateRoll.update(ctx, frame)
     end
 
     if wall_ahead then
-        local under_ceiling = ctx.map_ref.colides(ctx.position.x + ctx.size.w - 6, ctx.position.y + ctx.size.h - 18, kColisionType.right)
-                           or ctx.map_ref.colides(ctx.position.x + 6, ctx.position.y + ctx.size.h - 18, kColisionType.left)
+        local center_x = ctx.position.x + ctx.size.w / 2
+        local head_y = ctx.position.y + 12
+        local under_ceiling = ctx.map_ref.colides(center_x, head_y, kColisionType.top)
                            
         if under_ceiling then
             ctx.roll_direction = -ctx.roll_direction
