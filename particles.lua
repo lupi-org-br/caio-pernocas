@@ -50,7 +50,7 @@ kParticles = {
     smoke = 2
 }
 
-local particles_max = 64
+local particles_max = 256
 local particles_factories = {
     [kParticles.snow] = make_snow_particle,
     [kParticles.smoke] = make_smoke_particle
@@ -76,9 +76,23 @@ function make_particles()
     end
 
     local function draw(frame)
+
+        ui.fillp(
+            0b10101010,
+            0b01010101,
+            0b10101010,
+            0b01010101,
+            0b10101010,
+            0b01010101,
+            0b10101010,
+            0b01010101
+        )
+
         for _, p in pairs(particles) do
             p.draw(frame)
         end
+
+        ui.fillp()
     end
 
     return {
