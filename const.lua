@@ -19,6 +19,7 @@ kGravity = 0.3
 kMaxGravity = 4
 kJumpForce = 5.2
 kPlayerSpeed = 2
+kPlayerRollSpeed = 4
 
 kState = {
     idle = 0,

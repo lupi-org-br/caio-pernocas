@@ -32,6 +32,6 @@ function StateRoll.update(ctx, frame)
         end
     end
 
-    ctx.velocity.x = ctx.roll_direction * kPlayerSpeed
+    ctx.velocity.x = ctx.roll_direction * kPlayerRollSpeed
     return nil
 end
