@@ -54,11 +54,11 @@ function make_bird(bird)
             end
         end,
         on_frame = function(frame, player, map, camera)
+            local flipped = (tx < player.box().x) and true or false
             if dead == 0 and player then
-                local flipped = (tx < player.box().x) and true or false
                 ui.spr(tileset[tostring(tile_frame)], rx, ry, flipped, false)
             elseif dead < 5 then
-                ui.spr(tileset[tostring(tile_frame)], rx, ry)
+                ui.spr(tileset[tostring(tile_frame)], rx, ry, flipped, false)
             end
         end
     }
