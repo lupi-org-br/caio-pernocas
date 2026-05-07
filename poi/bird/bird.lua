@@ -59,8 +59,8 @@ function make_bird(bird)
                 flipped = (tx < player.box().x) and true or false
                 ui.spr(tileset[tostring(tile_frame)], rx, ry, flipped, false)
 
-                if frame % 10 == 0 then
-                    P.add_particle(rx, ry, kParticles.smoke)
+                if frame % 3 == 0 then
+                    P.add_particle(rx + 10, ry + 10, kParticles.smoke)
                 end
             elseif dead < 5 then
                 ui.spr(tileset[tostring(tile_frame)], rx, ry, flipped, false)
