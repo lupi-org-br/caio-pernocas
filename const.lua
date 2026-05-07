@@ -146,7 +146,7 @@ kStages = {
     },
     {
         map_location = { x = 35, y = 39 },
-        player_start = { x = 7, y = 14 },
+        player_start = { x = 9, y = 14 },
         looking_back = false,
         bg_up        = Sprites.tilemap.clouds,
         bg_down      = Sprites.tilemap.ocean,
