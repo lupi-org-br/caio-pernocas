@@ -18,6 +18,7 @@ function make_player(map_ref)
     local tileset = nil
     local tile_frame = 0
     local event_listeners = {}
+    local roll_direction = 0
 
     local function call_event_listeners(event, params)
         for _, listener in ipairs(event_listeners) do
@@ -102,10 +103,40 @@ function make_player(map_ref)
 
         if dead then
             state = kPlayerStates.dead
+            roll_direction = 0
+        elseif roll_direction ~= 0 then
+            -- Autonomous roll movement
+            if not on_ground then
+                roll_direction = 0
+            else
+                local wall_ahead = false
+                if roll_direction > 0 then
+                    wall_ahead = map_ref.colides(position.x + size.w - 6, position.y + size.h - 18, kColisionType.right)
+                              or map_ref.colides(position.x + size.w - 6, position.y + size.h - 1, kColisionType.right)
+                else
+                    wall_ahead = map_ref.colides(position.x + 6, position.y + size.h - 18, kColisionType.left)
+                              or map_ref.colides(position.x + 6, position.y + size.h - 1, kColisionType.left)
+                end
+
+                if wall_ahead then
+                    roll_direction = 0
+                    velocity.x = 0
+                    state = kPlayerStates.idle
+                else
+                    velocity.x = roll_direction * kPlayerSpeed
+                    state = kPlayerStates.roll
+                end
+            end
         else
             if ui.btn(DOWN, pad_1) then
-                velocity.x = 0
-                state = kPlayerStates.crouch
+                if state == kPlayerStates.run then
+                    roll_direction = looking_back and -1 or 1
+                    state = kPlayerStates.roll
+                    velocity.x = roll_direction * kPlayerSpeed
+                else
+                    velocity.x = 0
+                    state = kPlayerStates.crouch
+                end
             elseif on_ground and action_button_is(kState.pressed) then
                 velocity.y = -kJumpForce
                 on_ground = false
@@ -121,16 +152,18 @@ function make_player(map_ref)
             else
                 state = kPlayerStates.idle
             end
+        end
 
-            if velocity.y > 0.6 then
-                state = kPlayerStates.fall
-                if velocity.y > 2.0 then
-                    on_ground = false
-                    call_event_listeners(kPlayerEvents.falling)
-                end 
-            elseif velocity.y < -0.6 then
-                state = kPlayerStates.jump
-            end
+        if velocity.y > 0.6 then
+            state = kPlayerStates.fall
+            roll_direction = 0
+            if velocity.y > 2.0 then
+                on_ground = false
+                call_event_listeners(kPlayerEvents.falling)
+            end 
+        elseif velocity.y < -0.6 then
+            state = kPlayerStates.jump
+            roll_direction = 0
         end
 
         if not dead then check_h_colisions() end
@@ -142,7 +175,7 @@ function make_player(map_ref)
     end
 
     local function box()
-        local cfactor = (state == kPlayerStates.crouch) and 14 or 6
+        local cfactor = (state == kPlayerStates.crouch or state == kPlayerStates.roll) and 14 or 6
         return {
             x = math.floor(position.x + 0.5) + 8,
             y = math.floor(position.y + 0.5) + cfactor,
@@ -157,6 +190,7 @@ function make_player(map_ref)
             position.y = last_check.y
             dead = false
             should_reset = false
+            roll_direction = 0
             camera.set_target(player)
             state = kPlayerStates.idle
             reset_frames = 42
