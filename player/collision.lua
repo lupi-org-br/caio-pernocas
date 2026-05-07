@@ -17,20 +17,29 @@ function check_v_colisions(ctx)
 end
 
 function check_h_colisions(ctx)
-    -- two sensors, in front of me, to the right
-    if ctx.map_ref.colides(ctx.position.x + ctx.size.w - 6, ctx.position.y + ctx.size.h - 18, kColisionType.right)
-        or ctx.map_ref.colides(ctx.position.x + ctx.size.w - 6, ctx.position.y + ctx.size.h - 1, kColisionType.right) then
+    local check_top = (ctx.state ~= kPlayerStates.roll and ctx.state ~= kPlayerStates.crouch)
+    
+    local right_col = ctx.map_ref.colides(ctx.position.x + ctx.size.w - 6, ctx.position.y + ctx.size.h - 1, kColisionType.right)
+    if check_top then
+        right_col = right_col or ctx.map_ref.colides(ctx.position.x + ctx.size.w - 6, ctx.position.y + ctx.size.h - 18, kColisionType.right)
+    end
+
+    local left_col = ctx.map_ref.colides(ctx.position.x + 6, ctx.position.y + ctx.size.h - 1, kColisionType.left)
+    if check_top then
+        left_col = left_col or ctx.map_ref.colides(ctx.position.x + 6, ctx.position.y + ctx.size.h - 18, kColisionType.left)
+    end
+
+    if right_col then
         if ctx.velocity.x > 0 then
             ctx.position.x = ctx.position.x // 1
             ctx.velocity.x = 0
-            ctx.state = kPlayerStates.idle
+            if check_top then ctx.state = kPlayerStates.idle end
         end
-    elseif ctx.map_ref.colides(ctx.position.x + 6, ctx.position.y + ctx.size.h - 18, kColisionType.left)
-        or ctx.map_ref.colides(ctx.position.x + 6, ctx.position.y + ctx.size.h - 1, kColisionType.left) then
+    elseif left_col then
         if ctx.velocity.x < 0 then
             ctx.position.x = ctx.position.x // 1
             ctx.velocity.x = 0
-            ctx.state = kPlayerStates.idle
+            if check_top then ctx.state = kPlayerStates.idle end
         end
     end
 end
