@@ -5,6 +5,7 @@ function make_bird(bird)
     local dead = 0
     local tileset = nil
     local tile_frame = 0
+    local flipped = false
     local box = function()
         return {
             x = tx + 6,
@@ -55,10 +56,10 @@ function make_bird(bird)
         end,
         on_frame = function(frame, player, map, camera)
             if dead == 0 and player then
-                local flipped = (tx < player.box().x) and true or false
+                flipped = (tx < player.box().x) and true or false
                 ui.spr(tileset[tostring(tile_frame)], rx, ry, flipped, false)
             elseif dead < 5 then
-                ui.spr(tileset[tostring(tile_frame)], rx, ry)
+                ui.spr(tileset[tostring(tile_frame)], rx, ry, flipped, false)
             end
         end
     }
