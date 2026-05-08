@@ -90,7 +90,7 @@
          "name":"colision",
          "opacity":0.79,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":80,
          "x":0,
          "y":0
@@ -121,7 +121,7 @@
          "name":"pois",
          "opacity":0.85,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":80,
          "x":0,
          "y":0
