@@ -12,9 +12,9 @@ function StateRoll.update(ctx, frame)
 
     local wall_ahead = false
     if ctx.roll_direction > 0 then
-        wall_ahead = ctx.map_ref.colides(ctx.position.x + ctx.size.w - 8, ctx.position.y + ctx.size.h - 1, kColisionType.right)
+        wall_ahead = ctx.map_ref.colides(ctx.position.x + ctx.size.w - 6, ctx.position.y + ctx.size.h - 1, kColisionType.right)
     else
-        wall_ahead = ctx.map_ref.colides(ctx.position.x + 8, ctx.position.y + ctx.size.h - 1, kColisionType.left)
+        wall_ahead = ctx.map_ref.colides(ctx.position.x + 6, ctx.position.y + ctx.size.h - 1, kColisionType.left)
     end
 
     if wall_ahead then
