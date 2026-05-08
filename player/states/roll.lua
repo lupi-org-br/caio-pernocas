@@ -21,11 +21,13 @@ function StateRoll.update(ctx, frame)
         local center_x = ctx.position.x + ctx.size.w / 2
         local head_y = ctx.position.y + 12
         local under_ceiling = ctx.map_ref.colides(center_x, head_y, kColisionType.top)
-                           
+        
         if under_ceiling then
             ctx.roll_direction = -ctx.roll_direction
             ctx.looking_back = not ctx.looking_back
         else
+            local bump_distance = 2
+            ctx.position.x = ctx.position.x - (ctx.roll_direction * bump_distance)
             ctx.roll_direction = 0
             ctx.velocity.x = 0
             return kPlayerStates.idle
