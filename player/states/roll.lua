@@ -26,7 +26,7 @@ function StateRoll.update(ctx, frame)
             ctx.roll_direction = -ctx.roll_direction
             ctx.looking_back = not ctx.looking_back
         else
-            local bump_distance = 2
+            local bump_distance = 12
             ctx.position.x = ctx.position.x - (ctx.roll_direction * bump_distance)
             ctx.roll_direction = 0
             ctx.velocity.x = 0
