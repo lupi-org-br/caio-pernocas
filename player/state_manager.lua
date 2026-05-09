@@ -5,6 +5,7 @@ require "player.states.roll"
 require "player.states.jump"
 require "player.states.fall"
 require "player.states.dead"
+require "player.states.edge"
 
 PlayerStates = {
     [kPlayerStates.idle] = StateIdle,
@@ -14,6 +15,7 @@ PlayerStates = {
     [kPlayerStates.jump] = StateJump,
     [kPlayerStates.fall] = StateFall,
     [kPlayerStates.dead] = StateDead,
+    [kPlayerStates.edge] = StateEdge,
 }
 
 function update_player_state(ctx, frame)

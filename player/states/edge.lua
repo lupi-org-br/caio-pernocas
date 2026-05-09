@@ -1,6 +1,6 @@
-StateIdle = {}
+StateEdge = {}
 
-function StateIdle.update(ctx, frame)
+function StateEdge.update(ctx, frame)
     ctx.velocity.x = 0
     
     if ui.btn(DOWN, pad_1) then
@@ -31,9 +31,10 @@ function StateIdle.update(ctx, frame)
     end
 
     local is_edge, looking_left = check_edge_colisions(ctx)
-    if is_edge then
+    if not is_edge then
+        return kPlayerStates.idle
+    else
         ctx.looking_back = looking_left
-        return kPlayerStates.edge
     end
 
     return nil

@@ -37,6 +37,7 @@ kPlayerStates = {
     run = { asset = 'run', frames = 6, cadency = 4 },
     dead = { asset = 'hurt', frames = 2, cadency = 6 },
     roll = { asset = 'roll', frames = 4, cadency = 4 },
+    edge = { asset = 'edge', frames = 4, cadency = 8 },
 }
 
 kMapID = {

@@ -43,3 +43,17 @@ function check_h_colisions(ctx)
         end
     end
 end
+
+function check_edge_colisions(ctx)
+    if not ctx.on_ground then return false, false end
+    local left_foot = ctx.map_ref.colides(ctx.position.x + 5, ctx.position.y + ctx.size.h, kColisionType.bottom)
+    local right_foot = ctx.map_ref.colides(ctx.position.x + 27, ctx.position.y + ctx.size.h, kColisionType.bottom)
+    local center = ctx.map_ref.colides(ctx.position.x + 16, ctx.position.y + ctx.size.h, kColisionType.bottom)
+
+    if not left_foot and center then
+        return true, true
+    elseif not right_foot and center then
+        return true, false
+    end
+    return false, false
+end
