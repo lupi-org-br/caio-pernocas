@@ -3,14 +3,7 @@ StateEdge = {}
 function StateEdge.update(ctx, frame)
     ctx.velocity.x = 0
     
-    if ui.btn(DOWN, pad_1) then
-        return kPlayerStates.crouch
-    elseif ctx.on_ground and action_button_is(kState.pressed) then
-        ctx.velocity.y = -kJumpForce
-        ctx.on_ground = false
-        call_event_listeners(ctx, kPlayerEvents.jumped)
-        return kPlayerStates.jump
-    elseif ui.btn(LEFT, pad_1) then
+    if ui.btn(LEFT, pad_1) then
         ctx.velocity.x = -kPlayerSpeed
         ctx.looking_back = true
         return kPlayerStates.run
