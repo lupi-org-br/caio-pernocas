@@ -48,14 +48,9 @@ function check_edge_colisions(ctx)
     if not ctx.on_ground then return false, false end
     
     local check_y = ctx.position.y + ctx.size.h + 2
-    local left_foot = ctx.map_ref.colides(ctx.position.x + 5, check_y, kColisionType.bottom)
-    local right_foot = ctx.map_ref.colides(ctx.position.x + 27, check_y, kColisionType.bottom)
-    local center = ctx.map_ref.colides(ctx.position.x + 16, check_y, kColisionType.bottom)
-
-    -- Debug visualization
-    ui.circfill(ctx.position.x + 5, check_y, 2, 2) -- red_light
-    ui.circfill(ctx.position.x + 27, check_y, 2, 2) -- red_light
-    ui.circfill(ctx.position.x + 16, check_y, 2, 2) -- yellow
+    local left_foot = ctx.map_ref.colides(ctx.position.x + ctx.size.w / 2 - 4, check_y, kColisionType.bottom)
+    local right_foot = ctx.map_ref.colides(ctx.position.x + ctx.size.w / 2 + 4, check_y, kColisionType.bottom)
+    local center = ctx.map_ref.colides(ctx.position.x + ctx.size.w / 2, check_y, kColisionType.bottom)
 
     if not left_foot and center then
         return true, true
