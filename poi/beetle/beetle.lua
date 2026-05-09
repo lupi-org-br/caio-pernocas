@@ -45,7 +45,11 @@ function make_beetle(beetle)
                     local roll_kill = player.is_rolling() and player.get_roll_direction() * acell < 0
                     
                     if jump_kill or roll_kill then
-                        if jump_kill then player.enemy_taken_jump() end
+                        if jump_kill then 
+                            player.enemy_taken_jump() 
+                        else
+                            player.invert_roll()
+                        end
                         dead = 1
                     else
                         player.mark_dead()
