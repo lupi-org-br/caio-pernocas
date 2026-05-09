@@ -41,8 +41,11 @@ function make_beetle(beetle)
                 bx = bx + acell
                 local pbox, tbox = player.box(), box()
                 if check_collision(pbox, tbox) then
-                    if pbox.y + pbox.height < tbox.y + tbox.height then
-                        player.enemy_taken_jump()
+                    local jump_kill = pbox.y + pbox.height < tbox.y + tbox.height
+                    local roll_kill = player.is_rolling() and player.get_roll_direction() * acell < 0
+                    
+                    if jump_kill or roll_kill then
+                        if jump_kill then player.enemy_taken_jump() end
                         dead = 1
                     else
                         player.mark_dead()

@@ -77,6 +77,8 @@ function make_player(map_ref)
         end
     end
     player_api.is_dead = function() return ctx.dead end
+    player_api.is_rolling = function() return ctx.state == kPlayerStates.roll end
+    player_api.get_roll_direction = function() return ctx.roll_direction end
     player_api.spring_jump = function()
         ctx.velocity.y = -(kJumpForce * 1.5)
         ctx.on_ground = false
