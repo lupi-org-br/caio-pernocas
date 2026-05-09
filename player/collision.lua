@@ -52,9 +52,9 @@ function check_edge_colisions(ctx)
     local right_foot = ctx.map_ref.colides(ctx.position.x + ctx.size.w / 2 + 6, check_y, kColisionType.bottom)
 
     if not left_foot and right_foot then
-        return true, true
-    elseif not right_foot and left_foot then
         return true, false
+    elseif not right_foot and left_foot then
+        return true, true
     end
     return false, false
 end
