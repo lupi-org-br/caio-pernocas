@@ -218,10 +218,10 @@ function make_overworld()
 
     local function draw_fade(current_frame)
         if current_frame < 48 then
-            DrawTrisFade(current_frame, 1 - current_frame / 48, 4)
+            DrawTrisFade(current_frame, 1 - current_frame / 44, 4)
         else
             if move_to_next > 0 then move_to_next = move_to_next + 1 end
-            DrawTrisFade(current_frame, move_to_next / 48, 4)
+            DrawTrisFade(current_frame, move_to_next / 44, 4)
         end
     end
 

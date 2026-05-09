@@ -1,5 +1,5 @@
 function DrawTrisFade(current_frame, progress, stage)
-    local percent = progress
+    local percent = math.min(progress, 1.0)
     local progress = (96 * progress) // 1
     local size = 45 + progress * 8
 
