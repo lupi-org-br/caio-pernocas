@@ -80,7 +80,7 @@ function make_player(map_ref)
     player_api.is_rolling = function() return ctx.state == kPlayerStates.roll end
     player_api.get_roll_direction = function() return ctx.roll_direction end
     player_api.invert_roll = function()
-        if not ctx.is_rolling() then return end
+        if ctx.state ~= kPlayerStates.roll then return end
         ctx.roll_direction = -ctx.roll_direction
         ctx.looking_back = not ctx.looking_back
     end
