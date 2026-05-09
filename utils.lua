@@ -1,10 +1,10 @@
 function DrawTrisFade(current_frame, progress, stage)
-    local percent = math.min(progress, 1.0)
-    local progress = (96 * progress) // 1
-    local size = 45 + progress * 8
+    local percent = math.max(0, math.min(progress, 1.0))
+    local progress = (96 * percent) // 1
+    local size = 45 + percent * 8
 
     for i = -1, size // 4 do
-        local f = progress > 0 and 0 or (current_frame // 4)
+        local f = percent > 0 and 0 or (current_frame // 4)
         local dx = 5 * i - f % 5
         local dy = size - 5 * i + f % 5
         if dx < 480 and dy < 270 then
