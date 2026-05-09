@@ -53,9 +53,9 @@ function check_edge_colisions(ctx)
     local center = ctx.map_ref.colides(ctx.position.x + 16, check_y, kColisionType.bottom)
 
     -- Debug visualization
-    ui.circfill(ctx.position.x + 5, check_y, 1, 2) -- red_light
-    ui.circfill(ctx.position.x + 27, check_y, 1, 2) -- red_light
-    ui.circfill(ctx.position.x + 16, check_y, 1, 63) -- yellow
+    ui.circfill(ctx.position.x + 5, check_y, 2, 2) -- red_light
+    ui.circfill(ctx.position.x + 27, check_y, 2, 2) -- red_light
+    ui.circfill(ctx.position.x + 16, check_y, 2, 2) -- yellow
 
     if not left_foot and center then
         return true, true
