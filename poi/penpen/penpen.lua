@@ -22,7 +22,7 @@ function make_penpen(data)
             local pw = player.box()
             local dist = math.abs(pw.x - wx)
 
-            if state == "slide" or dist < 32 then
+            if state == "slide" or dist < 64 then
                 state = "slide"
             elseif dist < 128 then
                 player_to_the_left = pw.x < wx
