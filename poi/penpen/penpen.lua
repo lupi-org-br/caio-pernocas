@@ -124,6 +124,8 @@ function make_penpen(data)
 
             local b = box()
             ui.rectfill(b.x, b.y, b.x + b.width, b.y + b.height, 13)
+            local b = player.box()
+            ui.rectfill(b.x, b.y, b.x + b.width, b.y + b.height, 14)
         end
     }
 end
