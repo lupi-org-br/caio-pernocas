@@ -9,7 +9,7 @@ function make_penpen(data)
     }
 
     local state = "idle"
-    local player_to_the_left = flase
+    local player_to_the_left = false
     
     return {
         update_relative_position = function() return true end,
@@ -33,7 +33,7 @@ function make_penpen(data)
             local animation = animations[state]
             current_frame = (1 + ((frame // animation.cadency) % animation.frames)) // 1
             local sprite_data = Sprites.poi.penpen[animation.sprite .. "_" .. math.floor(current_frame)]
-            ui.spr(sprite_data, wx, wy, player_to_the_left, false)
+            ui.spr(sprite_data, wx, wy, ~player_to_the_left, false)
         end
     }
 end 
