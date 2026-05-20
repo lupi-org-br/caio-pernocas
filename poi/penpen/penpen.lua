@@ -25,11 +25,17 @@ function make_penpen(data)
         end
     end
 
-    local function update_state(player)
+    local function has_clearance(map)
+        local probe_x = player_to_the_left and wx + 2 or wx + 30
+        local col_type = player_to_the_left and kColisionType.left or kColisionType.right
+        return not map.colides(probe_x, wy + 8, col_type)
+    end
+
+    local function update_state(player, map)
         if not player or state == "slide" then return end
         local pw = player.box()
         local dist = math.abs(pw.x - wx)
-        if dist < 92 then
+        if dist < 92 and has_clearance(map) then
             state = "slide"
         elseif dist < 128 then
             player_to_the_left = pw.x < wx
@@ -45,7 +51,7 @@ function make_penpen(data)
         local dir = player_to_the_left and -slide_speed or slide_speed
         wx = wx + dir
 
-        local probe_x = dir > 0 and wx + 26 or wx + 6
+        local probe_x = dir > 0 and wx + 30 or wx + 2
         local col_type = dir > 0 and kColisionType.right or kColisionType.left
         if map.colides(probe_x, wy + 8, col_type) then
             state = "idle"
@@ -66,7 +72,7 @@ function make_penpen(data)
 
         before_frame = function(frame, player, map, camera)
             apply_gravity(map)
-            update_state(player)
+            update_state(player, map)
             apply_slide(map)
         end,
 
