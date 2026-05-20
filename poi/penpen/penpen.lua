@@ -114,13 +114,20 @@ function make_penpen(data)
             if dead >= 5 then return end
             if dead > 0 then
                 local ef = math.min(4, 1 + math.floor(dead // 1))
-                ui.spr(Sprites.poi.explode[tostring(ef)], wx, wy, false, false)
+                ui.spr(Sprites.poi.explode[tostring(ef)], wx, wy - 6, false, false)
                 return
             end
+
             local anim = animations[state]
             current_frame = (1 + (((frame + salt) // anim.cadency) % anim.frames)) // 1
             local sprite_key = anim.sprite .. "_" .. math.floor(current_frame)
             ui.spr(Sprites.poi.penpen[sprite_key], wx, wy, not player_to_the_left, false)
+
+            if state == "slide" then
+                if frame % 6 == 0 then
+                    P.add_particle(wx + 16 + math.random(4), wy + 12, kParticles.smoke)
+                end
+            end
         end
     }
 end
