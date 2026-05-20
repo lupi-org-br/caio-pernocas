@@ -5,7 +5,7 @@ function make_penpen(data)
     local vy = 0
     local on_ground = false
     local stop_at_edges = false
-    local slide_speed = 2
+    local slide_speed = 2 + math.floor(math.random(1, 2))
     local state = "idle"
     local player_to_the_left = false
     local animations = {
