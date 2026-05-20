@@ -23,7 +23,7 @@ function make_penpen(data)
             local dist = pw.x - wx
             player_to_the_left = dist < 0
 
-            if state = "slide" or dist < 64 and dist > -64 then
+            if state == "slide" or (dist < 64 and dist > -64) then
                 state = "slide"
             elseif dist < 256 and dist > -256 then
                 state = "nearby"
