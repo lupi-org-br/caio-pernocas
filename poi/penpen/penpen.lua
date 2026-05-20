@@ -71,7 +71,7 @@ function make_penpen(data)
     end
 
     local function box()
-        return { x = wx + 6, y = wy, width = 20, height = 10 }
+        return { x = wx + 6, y = wy + 16, width = 20, height = 10 }
     end
 
     local function check_player_hit(player, camera)
@@ -121,6 +121,9 @@ function make_penpen(data)
             current_frame = (1 + (((frame + salt) // anim.cadency) % anim.frames)) // 1
             local sprite_key = anim.sprite .. "_" .. math.floor(current_frame)
             ui.spr(Sprites.poi.penpen[sprite_key], wx, wy, not player_to_the_left, false)
+
+            local b = box()
+            ui.rectfill(b.x, b.y, b.x + b.width, b.y + b.height, 13)
         end
     }
 end
