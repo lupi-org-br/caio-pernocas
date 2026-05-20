@@ -9,7 +9,7 @@ function make_penpen(data)
     local salt = math.random(1, 20)
     local on_ground = false
     local stop_at_edges = false
-    local slide_speed = 2 + math.floor(math.random(1, 2))
+    local slide_speed = 0.02 -- + math.floor(math.random(1, 2))
     local dead = 0
     local state = "idle"
     local player_to_the_left = false
