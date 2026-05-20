@@ -8,6 +8,7 @@ require "poi.pad.pad"
 require "poi.bird.bird"
 require "poi.decal.decal"
 require "poi.cherry.cherry"
+require "poi.penpen.penpen"
 
 local function make_poi_by_type(data, camera, player, map)
     if data.poi == kPoiType.spike then return make_spike(data) end
@@ -24,6 +25,7 @@ local function make_poi_by_type(data, camera, player, map)
     if data.poi == kPoiType.pad_b then return make_pad(data, 20) end
     if data.poi == kPoiType.pad_c then return make_pad(data, 40) end
     if data.poi == kPoiType.pad_d then return make_pad(data, 60) end
+    if data.poi == kPoiType.penpen then return make_penpen(data) end
     if data.poi == kPoiType.branch_left then return make_branch(data, 'left') end
     if data.poi == kPoiType.branch_right then return make_branch(data, 'right') end
 

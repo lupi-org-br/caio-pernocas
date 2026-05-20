@@ -77,6 +77,7 @@ kPoiType = {
     pad_b = 35,
     pad_c = 36,
     pad_d = 37,
+    penpen = 38,
     snowy_pine = 48,
     branch_left = 42,
     branch_right = 43,
