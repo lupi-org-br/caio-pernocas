@@ -3,7 +3,7 @@ function make_penpen(data)
     local wx = data.x * 16 - 16
     local wy = data.y * 16
     local animations = {
-        ["idle"] = {frames = 4, cadency = 16, sprite = "walk"},
+        ["idle"] = {frames = 4, cadency = 24, sprite = "walk"},
         ["nearby"] = {frames = 4, cadency = 6, sprite = "walk"},
         ["slide"] = {frames = 2, cadency = 8, sprite = "slide"}
     }
