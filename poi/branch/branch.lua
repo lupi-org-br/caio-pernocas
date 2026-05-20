@@ -24,7 +24,6 @@ function make_branch(branch, name)
                 target_frame = 1
             end)
             
-            
             for x = 1, 2 do
                 map.set_colide(wx + x * 16, wy + 16, 11, function(event)
                     if event == "touching" and target_frame ~= 5 then
