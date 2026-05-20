@@ -71,7 +71,7 @@ function make_penpen(data)
     end
 
     local function box()
-        return { x = wx + 6, y = wy + 16, width = 20, height = 10 }
+        return { x = wx + 6, y = wy + 6, width = 20, height = 10 }
     end
 
     local function check_player_hit(player, camera)
