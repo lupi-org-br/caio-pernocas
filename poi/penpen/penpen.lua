@@ -15,7 +15,8 @@ function make_penpen(data)
         end,
         
         on_frame = function(frame, player, map, camera)
-            local sprite_data = Sprites.poi.penpen["walk_" .. tostring(math.floor(current_frame))]
+            current_frame = (1 + ((frame // 8) % 4)) // 1
+            local sprite_data = Sprites.poi.penpen["walk_" .. math.floor(current_frame)]
             ui.spr(sprite_data, wx, wy, false, false)
         end
     }
