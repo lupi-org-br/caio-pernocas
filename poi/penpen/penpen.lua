@@ -3,6 +3,9 @@ function make_penpen(data)
     local wx = data.x * 16 - 16
     local wy = data.y * 16
     local vy = 0
+
+    math.randomseed(wx)
+
     local salt = math.random(1, 20)
     local on_ground = false
     local stop_at_edges = false
