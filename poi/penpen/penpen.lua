@@ -1,9 +1,9 @@
 function make_penpen(data)
     current_frame = 1
-    local wx = data.x * 16
+    local wx = data.x * 16 - 16
     local wy = data.y * 16
     local animations = {
-        ["idle"] = {frames = 4, cadency = 12, sprite = "walk"},
+        ["idle"] = {frames = 4, cadency = 16, sprite = "walk"},
         ["nearby"] = {frames = 4, cadency = 6, sprite = "walk"},
         ["slide"] = {frames = 2, cadency = 8, sprite = "slide"}
     }
@@ -20,7 +20,7 @@ function make_penpen(data)
         before_frame = function(frame, player, map, camera)
             local pw = player.box()
             local dist = pw.x - wx
-            if dist < 64 and dist > -64 then
+            if dist < 128 and dist > -128 then
                 state = "nearby"
             else
                 state = "idle"
