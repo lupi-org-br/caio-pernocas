@@ -18,7 +18,8 @@ function make_penpen(data)
         end,
 
         before_frame = function(frame, player, map, camera)
-            local dist = player.x - wx
+            local pw = player.box()
+            local dist = pw.x - wx
             if dist < 64 and dist > -64 then
                 state = "nearby"
             else
