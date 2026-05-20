@@ -9,6 +9,7 @@ function make_penpen(data)
     }
 
     local state = "idle"
+    local player_to_the_left = flase
     
     return {
         update_relative_position = function() return true end,
@@ -20,6 +21,7 @@ function make_penpen(data)
         before_frame = function(frame, player, map, camera)
             local pw = player.box()
             local dist = pw.x - wx
+            player_to_the_left = dist < 0
             if dist < 128 and dist > -128 then
                 state = "nearby"
             else
@@ -31,7 +33,7 @@ function make_penpen(data)
             local animation = animations[state]
             current_frame = (1 + ((frame // animation.cadency) % animation.frames)) // 1
             local sprite_data = Sprites.poi.penpen[animation.sprite .. "_" .. math.floor(current_frame)]
-            ui.spr(sprite_data, wx, wy, false, false)
+            ui.spr(sprite_data, wx, wy, player_to_the_left, false)
         end
     }
 end 
