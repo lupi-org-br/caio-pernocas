@@ -20,14 +20,15 @@ function make_penpen(data)
 
         before_frame = function(frame, player, map, camera)
             local pw = player.box()
-            local dist = pw.x - wx
-            player_to_the_left = dist < 0
+            local dist = math.abs(pw.x - wx)
 
-            if state == "slide" or (dist < 64 and dist > -64) then
+            if state == "slide" or dist < 32 then
                 state = "slide"
-            elseif dist < 256 and dist > -256 then
+            elseif dist < 128 then
+                player_to_the_left = pw.x < wx
                 state = "nearby"
             else
+                player_to_the_left = pw.x < wx
                 state = "idle"
             end
         end,
