@@ -3,10 +3,10 @@ function make_penpen(data)
     local wx = data.x * 16 - 16
     local wy = data.y * 16
     local vy = 0
-    local salt = math.random(1, 20)
+    local salt = wx%20
     local on_ground = false
     local stop_at_edges = false
-    local slide_speed = 2 + math.floor(math.random(1, 2))
+    local slide_speed = 2 + salt // 10
     local state = "idle"
     local player_to_the_left = false
     local animations = {
