@@ -6,7 +6,7 @@ function make_penpen(data)
     local salt = wx
     local on_ground = false
     local stop_at_edges = false
-    local slide_speed = 2 + ((salt%20) / 10)
+    local slide_speed = 2 + ((salt%12) / 10)
     local state = "idle"
     local player_to_the_left = false
     local animations = {
