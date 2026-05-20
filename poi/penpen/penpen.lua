@@ -27,6 +27,8 @@ function make_penpen(data)
         if on_ground and vy > 0 then
             wy = ((wy + 16) // 16) * 16 - 16
             vy = 0
+        elseif wy > map.size.height then
+            dead = 5
         end
     end
 
