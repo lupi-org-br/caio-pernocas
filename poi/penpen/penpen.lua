@@ -26,7 +26,7 @@ function make_penpen(data)
     end
 
     local function has_clearance(map)
-        local probe_x = player_to_the_left and wx + 2 or wx + 30
+        local probe_x = player_to_the_left and wx + 2 or wx + 28
         local col_type = player_to_the_left and kColisionType.left or kColisionType.right
         return not map.colides(probe_x, wy + 8, col_type)
     end
@@ -51,7 +51,7 @@ function make_penpen(data)
         local dir = player_to_the_left and -slide_speed or slide_speed
         wx = wx + dir
 
-        local probe_x = dir > 0 and wx + 30 or wx + 2
+        local probe_x = dir > 0 and wx + 28 or wx + 2
         local col_type = dir > 0 and kColisionType.right or kColisionType.left
         if map.colides(probe_x, wy + 8, col_type) then
             state = "idle"
