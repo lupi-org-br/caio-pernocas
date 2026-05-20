@@ -122,6 +122,16 @@ kStages = {
         cherries     = 2,
         bg_tint      = kColors.sunrise,
         display_name = "X 2-1",
+        map_name     = "maps.stages.w2s1"
+    },{
+        map_location = { x = 41, y = 44 },
+        player_start = { x = 7, y = 14 },
+        looking_back = false,
+        bg_up        = Sprites.tilemap.snowy_top,
+        bg_down      = Sprites.tilemap.snowy_bot,
+        cherries     = 2,
+        bg_tint      = kColors.sunrise,
+        display_name = "X 2-12",
         map_name     = "maps.stages.w2s2"
     },
     {
