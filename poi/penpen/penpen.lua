@@ -3,6 +3,7 @@ function make_penpen(data)
     local wx = data.x * 16 - 16
     local wy = data.y * 16
     local vy = 0
+    local salt = math.random(1, 20)
     local on_ground = false
     local stop_at_edges = false
     local slide_speed = 2 + math.floor(math.random(1, 2))
@@ -78,7 +79,7 @@ function make_penpen(data)
 
         on_frame = function(frame, player, map, camera)
             local anim = animations[state]
-            current_frame = (1 + ((frame // anim.cadency) % anim.frames)) // 1
+            current_frame = (1 + (((frame + salt) // anim.cadency) % anim.frames)) // 1
             local sprite_key = anim.sprite .. "_" .. math.floor(current_frame)
             ui.spr(Sprites.poi.penpen[sprite_key], wx, wy, not player_to_the_left, false)
         end
