@@ -92,7 +92,7 @@ function make_penpen(data)
             dead = 1
         else
             player.mark_dead()
-            camera.set_target { box = function() return box() end }
+            camera.set_target { box = function() return player.box() end }
         end
     end
 
