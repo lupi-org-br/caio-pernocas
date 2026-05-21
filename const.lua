@@ -131,7 +131,7 @@ kStages = {
         bg_down      = Sprites.tilemap.snowy_bot,
         cherries     = 2,
         bg_tint      = kColors.sunrise,
-        display_name = "X 2-12",
+        display_name = "X 2-2",
         map_name     = "maps.stages.w2s2"
     },
     {
