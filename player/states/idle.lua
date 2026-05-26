@@ -34,7 +34,6 @@ function StateIdle.update(ctx, frame)
     if is_edge then
         ctx.edge_grace = ctx.edge_grace + 1
         if ctx.edge_grace >= 6 then
-            ctx.looking_back = looking_left
             return kPlayerStates.edge
         end
     else
