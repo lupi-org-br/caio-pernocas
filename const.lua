@@ -169,7 +169,7 @@ kStages = {
     },
     {
         map_location = { x = 38, y = 36 },
-        player_start = { x = 7, y = 11 },
+        player_start = { x = 7, y = 14 },
         looking_back = false,
         bg_up        = Sprites.tilemap.clouds,
         bg_down      = Sprites.tilemap.ocean,
@@ -180,7 +180,7 @@ kStages = {
     },
     {
         map_location = { x = 40, y = 36 },
-        player_start = { x = 7, y = 14 },
+        player_start = { x = 7, y = 11 },
         looking_back = false,
         bg_up        = Sprites.tilemap.clouds,
         bg_down      = Sprites.tilemap.ocean,
