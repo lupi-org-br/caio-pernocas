@@ -25,6 +25,7 @@ function make_player(map_ref)
         tileset = nil, tile_frame = 0,
         event_listeners = {},
         roll_direction = 0,
+        edge_grace = 0,
         map_ref = map_ref
     }
 

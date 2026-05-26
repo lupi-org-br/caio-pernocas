@@ -32,8 +32,13 @@ function StateIdle.update(ctx, frame)
 
     local is_edge, looking_left = check_edge_colisions(ctx)
     if is_edge then
-        ctx.looking_back = looking_left
-        return kPlayerStates.edge
+        ctx.edge_grace = ctx.edge_grace + 1
+        if ctx.edge_grace >= 6 then
+            ctx.looking_back = looking_left
+            return kPlayerStates.edge
+        end
+    else
+        ctx.edge_grace = 0
     end
 
     return nil

@@ -23,6 +23,7 @@ function update_player_state(ctx, frame)
     if current_state_module and current_state_module.update then
         local next_state = current_state_module.update(ctx, frame)
         if next_state and next_state ~= ctx.state then
+            ctx.edge_grace = 0
             ctx.state = next_state
             local new_state_module = PlayerStates[next_state]
             if new_state_module and new_state_module.enter then
