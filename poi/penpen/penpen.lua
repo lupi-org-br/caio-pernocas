@@ -34,8 +34,9 @@ function make_penpen(data)
 
     local function has_clearance(map)
         local probe_x = player_to_the_left and wx + 2 or wx + 28
-        local col_type = player_to_the_left and (kColisionType.left or kColisionType.right or kColisionType.enemies)
+        local col_type = player_to_the_left and kColisionType.left or kColisionType.right
         return not map.colides(probe_x, wy + 8, col_type)
+           and not map.colides(probe_x, wy + 8, kColisionType.enemies)
     end
 
     local function update_state(player, map)
@@ -59,8 +60,9 @@ function make_penpen(data)
         wx = wx + dir
 
         local probe_x = dir > 0 and wx + 28 or wx + 2
-        local col_type = dir > 0 and (kColisionType.right or kColisionType.left or kColisionType.enemies)
-        if map.colides(probe_x, wy + 8, col_type) then
+        local col_type = dir > 0 and kColisionType.right or kColisionType.left
+        if map.colides(probe_x, wy + 8, col_type)
+            or map.colides(probe_x, wy + 8, kColisionType.enemies) then
             state = "idle"
             return
         end
