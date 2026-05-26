@@ -32,7 +32,7 @@ function StateEdge.update(ctx, frame)
     if not is_edge then
         return kPlayerStates.idle
     else
-        ctx.looking_back = not looking_left
+        ctx.looking_back = looking_left
     end
 
     return nil
