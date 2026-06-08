@@ -294,10 +294,10 @@ function make_overworld()
             draw_layer(current_frame, 'BG', world_tiles)
             draw_layer(current_frame, 'FG', props_tiles)
 
-            ui.camera(0, 0)
+            ui.camera()
+            ui.clip()
+            
             draw_player(current_frame, props_tiles)
-
-            ui.clip(0, 0, 480, 270)
             draw_fade(current_frame)
         end
     }
