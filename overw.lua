@@ -184,7 +184,7 @@ function make_overworld()
 
     local function update_tileset(frame)
         local f = (6 - math.abs((frame // 12) % 10 - 5))
-        data.tilesets.FG = "fg" .. math.max(1, math.min(6, f))
+        data.tilesets.FG = "fg" .. math.max(2, math.min(6, f))
     end 
 
     local function update_camera(current_frame)
