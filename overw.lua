@@ -287,7 +287,7 @@ function make_overworld()
             ui.cls(kColors.purple_light)
             for x=0, 8 do
                 for y=0, 5 do
-                    local df = (frame // 8 % 64)
+                    local df = (current_frame // 8 % 64)
                     ui.spr(Sprites.maps.world.pattern, x * 64 - df, y * 64 - df)
                 end
             end
