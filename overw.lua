@@ -183,7 +183,7 @@ function make_overworld()
     end
 
     local function update_tileset(frame)
-        data.tilesets.FG = "fg" .. (6 - math.abs((frame // 12) % 10 - 5))
+        data.tilesets.FG = "fg" .. 1--(6 - math.abs((frame // 12) % 10 - 5))
     end 
 
     local function update_camera(current_frame)
@@ -284,14 +284,12 @@ function make_overworld()
             end
 
             ui.cls(kColors.purple_light)
-            ui.rectfill(18,18, 480-18*2, 270-18*2, kColors.purple_dark)
+            ui.rectfill(18 + 4, 18 + 4, 480 - 18 +4, 270 - 18 + 4, kColors.purple_dark)
             ui.clip(20, 20, 480-20*2, 270-20*2)
             ui.camera(camx, camy)
 
-            -- local ff = ping_pong(current_frame // 8, 5)
             local world_tiles = Sprites.maps.world.bg
             local props_tiles = Sprites.maps.world.fg1
-
             draw_layer(current_frame, 'BG', world_tiles)
             draw_layer(current_frame, 'FG', props_tiles)
 
