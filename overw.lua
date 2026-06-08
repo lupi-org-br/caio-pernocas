@@ -285,8 +285,12 @@ function make_overworld()
             end
 
             ui.cls(kColors.purple_light)
-            ui.rectfill(18+4, 18+4, 480-18, 270-18, kColors.purple_dark)
-            ui.spr(Sprites.maps.world.pattern, 0, 0)
+            for x=0, 8 do
+                for y=0, 5 do
+                    ui.spr(Sprites.maps.world.pattern, x * 64, y * 64)
+                end
+            end
+
             ui.clip(20, 20, 480-20*2, 270-20*2)
             ui.camera(camx, camy)
 
