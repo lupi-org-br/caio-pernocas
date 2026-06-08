@@ -285,6 +285,7 @@ function make_overworld()
 
             ui.cls(kColors.purple_dark)
             ui.camera(camx, camy)
+            -- v2
             ui.clip(20, 20, 440, 230)
 
             local ff = ping_pong(current_frame // 8, 5)
@@ -296,7 +297,7 @@ function make_overworld()
 
             ui.camera()
             ui.clip()
-            
+
             draw_player(current_frame, props_tiles)
             draw_fade(current_frame)
         end
