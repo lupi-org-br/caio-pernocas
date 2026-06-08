@@ -285,7 +285,6 @@ function make_overworld()
 
             ui.cls(kColors.purple_dark)
             ui.camera(camx, camy)
-            -- v9
             ui.clip(20, 20, 440, 230)
 
             local ff = ping_pong(current_frame // 8, 5)
@@ -293,7 +292,7 @@ function make_overworld()
             local props_tiles = Sprites.maps.world.fg1
 
             draw_layer(current_frame, 'BG', world_tiles)
-            draw_layer(current_frame, 'FG', props_tiles)
+            --draw_layer(current_frame, 'FG', props_tiles)
 
             ui.camera()
             ui.clip()
