@@ -285,6 +285,8 @@ function make_overworld()
             end
 
             ui.cls(kColors.purple_light)
+            ui.clip()
+            
             for x=1, 8 do
                 for y=0, 5 do
                     local df = (current_frame // 2 % 64)
