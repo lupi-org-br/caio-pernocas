@@ -285,7 +285,7 @@ function make_overworld()
 
             ui.cls(kColors.purple_dark)
             ui.camera(camx, camy)
-            -- v5
+            -- v6
             ui.clip(20, 20, 440, 230)
 
             local ff = ping_pong(current_frame // 8, 5)
