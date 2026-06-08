@@ -285,7 +285,8 @@ function make_overworld()
 
             ui.cls(kColors.purple_light)
             ui.camera(camx, camy)
-            ui.clip(20, 20, 440, 230)
+            ui.rectfill(35, 35, 480 - 35 *2, 270 - 35 * 2, kColors.purple_dark)
+            ui.clip(40, 40, 480 - 40 *2, 270 - 40 * 2)
 
             local ff = ping_pong(current_frame // 8, 5)
             local world_tiles = Sprites.maps.world.bg
