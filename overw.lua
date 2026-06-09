@@ -310,7 +310,7 @@ function make_overworld()
             draw_fade(current_frame)
 
 
-            ui.image({
+            ui.img({
                 {8,8,8,8,8},
                 {8,10,9,10,8},
                 {8,10,9,10,8},
