@@ -285,7 +285,7 @@ function make_overworld()
             end
 
             ui.cls(kColors.purple_light)
-            ui.clip()
+            ui.clip(0,0,480,270)
 
             for x=0, 6 do
                 for y=0, 5 do
