@@ -308,6 +308,14 @@ function make_overworld()
 
             draw_player(current_frame, props_tiles)
             draw_fade(current_frame)
+
+
+            ui.image({
+                {8,8,8,8,8},
+                {8,10,9,10,8},
+                {8,10,9,10,8},
+                {8,8,8,8,8},
+            }, 32, 32)
         end
     }
 end
