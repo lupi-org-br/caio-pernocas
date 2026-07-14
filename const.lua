@@ -34,7 +34,7 @@ kPlayerStates = {
     idle = { asset = 'idle', frames = 4, cadency = 8 },
     jump = { asset = 'jump', frames = 1, cadency = 12 },
     fall = { asset = 'fall', frames = 1, cadency = 12 },
-    run = { asset = 'run', frames = 6, cadency = 4 },
+    run = { asset = 'run', frames = 5, cadency = 4 },
     dead = { asset = 'hurt', frames = 2, cadency = 6 },
     roll = { asset = 'roll', frames = 4, cadency = 4 },
     edge = { asset = 'edge', frames = 4, cadency = 8 },
