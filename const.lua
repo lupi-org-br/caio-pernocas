@@ -93,17 +93,17 @@ kPoiOrigin = {
 }
 
 kColors = {
-    black = 1,
-    purple_light = 75,
-    purple_dark = 68,
-    green_dark = 25,
-    green_light = 35,
-    green_bg = 10,
-    gray_light = 99,
-    red_light = 2,
-    blue_light = 83,
-    yellow = 63,
-    sunrise = 236,
+    black = Palette.hex(0x000000),
+    purple_light = Palette.hex(0x9C63A5),
+    purple_dark = Palette.hex(0x392142),
+    green_dark = Palette.hex(0x083918),
+    green_light = Palette.hex(0x528410),
+    green_bg = Palette.hex(0x185A21),
+    gray_light = Palette.hex(0xCED6DE),
+    red_light = Palette.hex(0xAD2121),
+    blue_light = Palette.hex(0x29BDFF),
+    yellow = Palette.hex(0xE7CE9C),
+    sunrise = Palette.hex(0xF7949C)
 }
 
 kPlayerEvents = {
