@@ -103,7 +103,7 @@ kColors = {
     red_light = Palette.hex(0xAD2121),
     blue_light = Palette.hex(0x29BDFF),
     yellow = Palette.hex(0xE7CE9C),
-    sunrise = Palette.hex(0xF7949C),
+    sunrise = Palette.hex(0xFF7B73),
 }
 
 kPlayerEvents = {
