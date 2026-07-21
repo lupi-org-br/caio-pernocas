@@ -1,5 +1,6 @@
 require "palette"
 require "sprites"
+require "const"
 require "menus.splash"
 
 function make_game()

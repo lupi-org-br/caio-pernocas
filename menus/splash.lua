@@ -10,7 +10,7 @@ local function _next_stage()
     if current_state == kStates.unloaded then 
         current_state = loading
     elseif current_state == kStates.loading then
-        require "const"
+        
         require "map"
         require "bg"
         require "player.player"
