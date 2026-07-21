@@ -1,17 +1,5 @@
 require "palette"
 require "sprites"
-
-require "const"
-require "map"
-require "bg"
-require "player.player"
-require "pois"
-require "camera"
-require "title"
-require "utils"
-require "overw"
-require "ui"
-require "particles"
 require "menus.splash"
 
 function make_game()

@@ -1,3 +1,31 @@
+local kStates = {
+    unloaded,
+    loading,
+    waiting
+}
+
+local current_state = kStates.unloaded
+
+local function _next_stage()
+    if current_state == kStates.unloaded then 
+        current_state = loading
+    elseif current_state == kStates.loading then
+        require "const"
+        require "map"
+        require "bg"
+        require "player.player"
+        require "pois"
+        require "camera"
+        require "title"
+        require "utils"
+        require "overw"
+        require "ui"
+        require "particles"
+
+        current_state = waiting
+    end  
+end 
+
 function make_splash()
     return {
         name = function() return "splash" end,
@@ -32,6 +60,8 @@ function make_splash()
                 ui.print("pressione [start] para iniciar!", 268, 170-1, Palette.hex(0x552448))
                 ui.print("pressione [start] para iniciar!", 268, 170, Palette.hex(0xFFFFFF))
             end 
+
+            _next_stage()
         end
     }
 end
