@@ -31,7 +31,10 @@ function make_map()
             draw_foreground(frame, camera)
         end,
         draw_overlay = function(frame, camera, player, map)
+            local camx, camy = camera.getxy()
+            ui.camera(camx*0.9, camy)
             draw_overlay(frame, camera)
+            ui.camera(camx, camy)
         end,
         colides = function(x, y, type)
             local width = data.metadata.width // 1
