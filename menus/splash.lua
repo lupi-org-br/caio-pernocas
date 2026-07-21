@@ -1,4 +1,4 @@
-function make_splash(){
+function make_splash()
     return {
         name = function() return "splash" end,
         update = function() end,
@@ -22,4 +22,4 @@ function make_splash(){
             ui.clip()
         end
     }
-}
+end
