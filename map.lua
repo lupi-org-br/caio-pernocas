@@ -12,7 +12,7 @@ function make_map()
     end
 
     local function draw_foreground(frame, camera)
-        data.tilesets.FG = 'sunny' .. 1 + ((frame // 8) % 4)
+        data.tilesets.bg = 'tiles_w1_' .. 1 + ((frame // 8) % 4)
         ui.map(data.foreground)
     end
 
