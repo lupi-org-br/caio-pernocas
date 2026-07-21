@@ -20,6 +20,10 @@ function make_splash()
             ui.cls(kColors.purple_light)
             ui.camera()
             ui.clip()
+
+            ui.spr(Sprites.menus.splash_p1, 0, 0)
+            ui.spr(Sprites.menus.splash_p2, 160, 0)
+            ui.spr(Sprites.menus.splash_p3, 320, 0)
         end
     }
 end
