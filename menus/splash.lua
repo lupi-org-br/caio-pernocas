@@ -25,11 +25,13 @@ function make_splash()
             ui.spr(Sprites.menus.splash_p2, 160, 0)
             ui.spr(Sprites.menus.splash_p3, 320, 0)
 
-            ui.print("pressione [start] para iniciar!", 268-1, 170, Palette.hex(0x552448))
-            ui.print("pressione [start] para iniciar!", 268+1, 170, Palette.hex(0x552448))
-            ui.print("pressione [start] para iniciar!", 268, 170+1, Palette.hex(0x552448))
-            ui.print("pressione [start] para iniciar!", 268, 170-1, Palette.hex(0x552448))
-            ui.print("pressione [start] para iniciar!", 268, 170, Palette.hex(0xFFFFFF))
+            if current_frame%320 > 160 then 
+                ui.print("pressione [start] para iniciar!", 268-1, 170, Palette.hex(0x552448))
+                ui.print("pressione [start] para iniciar!", 268+1, 170, Palette.hex(0x552448))
+                ui.print("pressione [start] para iniciar!", 268, 170+1, Palette.hex(0x552448))
+                ui.print("pressione [start] para iniciar!", 268, 170-1, Palette.hex(0x552448))
+                ui.print("pressione [start] para iniciar!", 268, 170, Palette.hex(0xFFFFFF))
+            end 
         end
     }
 end
