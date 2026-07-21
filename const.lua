@@ -136,7 +136,7 @@ kStages = {
     },
     {
         map_location = { x = 31, y = 36 },
-        player_start = { x = 7, y = 14 },
+        player_start = { x = 5, y = 4 },
         looking_back = false,
         bg_up        = Sprites.tilemap.forest,
         bg_down      = Sprites.tilemap.leaves,
