@@ -32,7 +32,7 @@ function make_map()
         end,
         draw_overlay = function(frame, camera, player, map)
             local camx, camy = camera.getxy()
-            ui.camera(camx*0.9, camy)
+            ui.camera(camx*1.1, camy)
             draw_overlay(frame, camera)
             ui.camera(camx, camy)
         end,
