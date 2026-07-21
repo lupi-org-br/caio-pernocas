@@ -12,6 +12,7 @@ require "utils"
 require "overw"
 require "ui"
 require "particles"
+require "splash"
 
 function make_game()
     local frame = 0
@@ -75,7 +76,7 @@ local function draw()
     Frame = Frame + 1
 
     if Scene == nil then
-        Scene = make_overworld()
+        Scene = make_splash()--make_overworld()
     end
 
     if Scene.is_finished() == true then
