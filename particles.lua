@@ -37,7 +37,7 @@ local function make_smoke_particle(x, y)
             life = life - 0.04
         end,
         draw = function(frame)
-            ui.circfill(cx // 1, cy // 1, math.floor(life + 0.5), 60)
+            ui.circfill(cx // 1, cy // 1, math.floor(life + 0.5), Palette.hex(0xaa6d91))
         end,
         alive = function() 
             return life > 0
