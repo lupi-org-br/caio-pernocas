@@ -12,7 +12,7 @@ require "utils"
 require "overw"
 require "ui"
 require "particles"
-require "splash"
+require "menus.splash"
 
 function make_game()
     local frame = 0
