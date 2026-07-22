@@ -2,9 +2,9 @@
 function make_splash()
 
     local kStates = {
-        unloaded,
-        loading,
-        waiting
+        unloaded = 1,
+        loading = 2,
+        waiting = 3
     }
 
     local current_state = kStates.unloaded
