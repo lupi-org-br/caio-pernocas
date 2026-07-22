@@ -40,9 +40,7 @@ function make_splash()
                 ui.palset(i - 1, color)
             end
 
-            pad_1, pad_2 = 0, 0
-
-            if ui.btnp(BTN_Z, pad_1) or ui.btnp(START, pad_1) then
+            if ui.btnp(BTN_Z, 0) then
                 is_done = true
             end
 
