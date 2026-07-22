@@ -5,12 +5,13 @@ local kStates = {
 }
 
 local current_state = kStates.unloaded
+local is_done = false
 
 local function _next_stage()
     if current_state == kStates.unloaded then 
         current_state = loading
     elseif current_state == kStates.loading then
-        
+
         require "map"
         require "bg"
         require "player.player"
@@ -31,7 +32,7 @@ function make_splash()
         name = function() return "splash" end,
         update = function() end,
         is_finished = function()
-            return false
+            return is_done
         end,
         draw = function(current_frame)
             for i = 1, #Palette do

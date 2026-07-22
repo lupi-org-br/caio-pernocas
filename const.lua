@@ -143,7 +143,7 @@ kStages = {
         cherries     = 2,
         bg_tint      = kColors.green_bg,
         display_name = "X 1-1",
-        map_name     = "maps.stages.nw1s1"
+        map_name     = "maps.stages.nw1s2"
     },
     {
         map_location = { x = 35, y = 36 },
