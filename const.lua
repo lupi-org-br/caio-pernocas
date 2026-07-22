@@ -104,6 +104,7 @@ kColors = {
     blue_light = Palette.hex(0x29BDFF),
     yellow = Palette.hex(0xE7CE9C),
     sunrise = Palette.hex(0xFF7B73),
+    ocean_bg = Palette.hex(0xaadaff)
 }
 
 kPlayerEvents = {
@@ -141,7 +142,7 @@ kStages = {
         bg_up        = Sprites.tilemap.leaves,
         bg_down      = Sprites.tilemap.forest,
         cherries     = 2,
-        bg_tint      = kColors.green_bg,
+        bg_tint      = kColors.ocean_bg,
         display_name = "X 1-1",
         map_name     = "maps.stages.nw1s2"
     },
