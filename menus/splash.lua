@@ -1,33 +1,35 @@
-local kStates = {
-    unloaded,
-    loading,
-    waiting
-}
-
-local current_state = kStates.unloaded
-local is_done = false
-
-local function _next_stage()
-    if current_state == kStates.unloaded then 
-        current_state = loading
-    elseif current_state == kStates.loading then
-
-        require "map"
-        require "bg"
-        require "player.player"
-        require "pois"
-        require "camera"
-        require "title"
-        require "utils"
-        require "overw"
-        require "ui"
-        require "particles"
-
-        current_state = waiting
-    end  
-end 
 
 function make_splash()
+
+    local kStates = {
+        unloaded,
+        loading,
+        waiting
+    }
+
+    local current_state = kStates.unloaded
+    local is_done = false
+
+    local function _next_stage()
+        if current_state == kStates.unloaded then 
+            current_state = kStates.loading
+        elseif current_state == kStates.loading then
+
+            require "map"
+            require "bg"
+            require "player.player"
+            require "pois"
+            require "camera"
+            require "title"
+            require "utils"
+            require "overw"
+            require "ui"
+            require "particles"
+
+            current_state = kStates.waiting
+        end  
+    end 
+
     return {
         name = function() return "splash" end,
         update = function() end,
