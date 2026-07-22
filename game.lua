@@ -65,7 +65,7 @@ local function draw()
     Frame = Frame + 1
 
     if Scene == nil then
-        Scene = make_splash()--make_overworld()
+        Scene = make_overworld() --make_splash()
     end
 
     if Scene.is_finished() == true then
