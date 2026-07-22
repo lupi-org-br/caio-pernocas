@@ -42,8 +42,8 @@ function make_splash()
 
             pad_1, pad_2 = 0, 0
 
-            if ui.btnp(BTN_Z, pad_1) then
-
+            if ui.btnp(BTN_Z, pad_1) or ui.btnp(START, pad_1) then
+                is_done = true
             end
 
             ui.cls(kColors.purple_light)
