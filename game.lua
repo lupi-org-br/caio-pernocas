@@ -61,17 +61,23 @@ end
 
 Frame, Scene = 0, nil
 
+local function next_scene(current_scene)
+    if current_scene.name() == "splash" then return make_overworld() end 
+    if current_scene.name() == "game" then return make_overworld() end 
+    if current_scene.name() == "overworld" then return make_game() end 
+end 
+
 local function draw()
     Frame = Frame + 1
 
     if Scene == nil then
-        Scene = make_overworld() --make_splash()
+        Scene = make_splash()--make_overworld()
     end
 
     if Scene.is_finished() == true then
         math.randomseed(os.time())
         Frame = 0
-        Scene = Scene.name() == "game" and make_overworld() or make_game()
+        Scene = next_scene(Scene)
         collectgarbage("collect")
     end
 
