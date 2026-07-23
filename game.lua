@@ -98,5 +98,4 @@ function update(new_frame)
     draw()
 end
 
-sfx.music("music/ketsa_3")
 collectgarbage("generational")
