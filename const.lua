@@ -101,7 +101,7 @@ kColors = {
     green_bg = Palette.hex(0x185A21),
     gray_light = Palette.hex(0xCED6DE),
     red_light = Palette.hex(0xAD2121),
-    blue_light = Palette.hex(0x29BDFF),
+    blue_light = Palette.hex(0x47f3ff),
     yellow = Palette.hex(0xE7CE9C),
     sunrise = Palette.hex(0xFF7B73),
 }
