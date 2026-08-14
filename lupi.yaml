@@ -1,3 +1,4 @@
 name: Caio Pernocas
 public: true
 version: 1.5
+minify: true
