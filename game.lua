@@ -79,7 +79,6 @@ local function draw()
     end
 
     if Scene.is_finished() == true then
-        math.randomseed(os.time())
         Frame = 0
         Scene = Scene.name() == "game" and make_overworld() or make_game()
         collectgarbage("collect")
