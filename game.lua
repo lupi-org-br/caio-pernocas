@@ -97,9 +97,9 @@ end
 local _ota = make_ota()
 
 function update(new_frame)
-    _ota.update()
-    -- if Scene then Scene.update() end
-    -- draw()
+    -- _ota.update()
+    if Scene then Scene.update() end
+    draw()
 end
 
 collectgarbage("generational")
