@@ -13,8 +13,6 @@ require "overw"
 require "ui"
 require "particles"
 
-require "ota"
-
 function make_game()
     local frame = 0
     local map = make_map()
@@ -94,10 +92,7 @@ local function draw()
     end
 end
 
-local _ota = make_ota()
-
 function update(new_frame)
-    -- _ota.update()
     if Scene then Scene.update() end
     draw()
 end
