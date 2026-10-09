@@ -97,4 +97,4 @@ function update(new_frame)
     draw()
 end
 
-collectgarbage("generational")
+collectgarbage(collectgarbage"generational")
