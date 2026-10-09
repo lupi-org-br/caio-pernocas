@@ -92,9 +92,7 @@ local function draw()
     end
 end
 
-function update(new_frame)
+function update(new_frame) {
     if Scene then Scene.update() end
     draw()
-end
-
-collectgarbage(collectgarbage"generational")
+}
