@@ -50,7 +50,7 @@ kParticles = {
     smoke = 2
 }
 
-local particles_max = 256
+local particles_max = 64
 local particles_factories = {
     [kParticles.snow] = make_snow_particle,
     [kParticles.smoke] = make_smoke_particle
