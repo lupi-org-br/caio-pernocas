@@ -29,7 +29,7 @@ end
 
 function soundtrack_hurt()
     if not has_channel_volume() then return end
-    music.volume(0.0, CH_1 | CH_2, kHurtFadeSeconds)
+    music.volume(0.0, CH_1 | CH_2 | CH_6 | CH_7, kHurtFadeSeconds)
 end
 
 function soundtrack_recover()
