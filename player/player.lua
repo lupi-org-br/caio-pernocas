@@ -99,6 +99,7 @@ function make_player(map_ref)
         ctx.velocity.y = -(kJumpForce * 0.8)
         ctx.dead = true
         ctx.state = kPlayerStates.dead
+        soundtrack_hurt()
     end
     player_api.overlay = function()
         return {

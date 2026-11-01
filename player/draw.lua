@@ -8,6 +8,7 @@ function draw_player(ctx, frame, camera)
         camera.set_target(ctx.player_api)
         ctx.state = kPlayerStates.idle
         ctx.reset_frames = 42
+        soundtrack_recover()
     end
 
     local x, y = math.floor(ctx.position.x + 0.5), math.floor(ctx.position.y + 0.5)

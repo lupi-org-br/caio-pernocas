@@ -1,4 +1,6 @@
 local kFadeSeconds = 0.6
+local kHurtFadeSeconds = 0.2
+local kRecoverFadeSeconds = 0.5
 local kTracks = {
     overworld = "music/menu",
     w1 = "music/w1",
@@ -19,4 +21,18 @@ function play_soundtrack(scene)
     else
         music.stop(kFadeSeconds)
     end
+end
+
+local function has_channel_volume()
+    return music ~= nil and music.volume ~= nil
+end
+
+function soundtrack_hurt()
+    if not has_channel_volume() then return end
+    music.volume(0.0, CH_1 | CH_2, kHurtFadeSeconds)
+end
+
+function soundtrack_recover()
+    if not has_channel_volume() then return end
+    music.volume(1.0, CH_ALL, kRecoverFadeSeconds)
 end
