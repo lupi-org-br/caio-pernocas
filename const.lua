@@ -93,17 +93,17 @@ kPoiOrigin = {
 }
 
 kColors = {
-    black = Palette.hex(0x000000),
-    purple_light = Palette.hex(0x9C63A5),
-    purple_dark = Palette.hex(0x392142),
-    green_dark = Palette.hex(0x083918),
-    green_light = Palette.hex(0x528410),
-    green_bg = Palette.hex(0x185A21),
-    gray_light = Palette.hex(0xCED6DE),
-    red_light = Palette.hex(0xAD2121),
-    blue_light = Palette.hex(0x47f3ff),
-    yellow = Palette.hex(0xE7CE9C),
-    sunrise = Palette.hex(0xFF7B73),
+    black = 0,
+    purple_light = 1,
+    purple_dark = 2,
+    green_dark = 3,
+    green_light = 4,
+    green_bg = 5,
+    gray_light = 6,
+    red_light = 7,
+    blue_light = 8,
+    yellow = 9,
+    sunrise = 10,
 }
 
 kPlayerEvents = {
@@ -130,7 +130,7 @@ kStages = {
         bg_up        = Sprites.tilemap.snowy_b_top,
         bg_down      = Sprites.tilemap.snowy_b_bot,
         cherries     = 2,
-        bg_tint      = Palette.hex(0x52294a),
+        bg_tint      = kColors.purple_dark,
         display_name = "X 2-2",
         map_name     = "maps.stages.w2s2"
     },
