@@ -1,6 +1,9 @@
 require "palette"
 require "sprites"
 
+require "lupinho-compat"
+require "palt-hex-compat"
+
 require "const"
 require "map"
 require "bg"
